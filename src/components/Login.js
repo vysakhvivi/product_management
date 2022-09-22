@@ -1,8 +1,8 @@
 import React from 'react'
+import '../css/login.css'
 import Logoside from '../images/Login_Side.png'
 import wave from '../images/wave.png'
 import avatar from '../images/avatar.png'
-import '../css/login.css'
 import {Link} from 'react-router-dom'
 
 
@@ -20,11 +20,11 @@ function Login() {
             <h2>Welcome</h2>
             <div className='inputdiv one focus'>
               <div className='i'>
-              <i class="fas fa-user"></i>
+              <i class="fas fa-at"></i>
               </div>
               <div>
-                <h5>Username</h5>
-                <input className='input' type='text'  />
+                <h5>Email</h5>
+                <input className='input' type='email'  />
               </div>
             </div>
             <div className='inputdiv two focus'>

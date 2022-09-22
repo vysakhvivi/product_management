@@ -183,8 +183,23 @@ form h2{
     }
     }
 
-@media screen and (max-width:10500px){
+@media screen and (max-width:1050px){
        .img img{
         width: 400px;
        }
+
+       .logincontainer{
+        width: 200px;
+        
+       }
         }
+
+@media screen and (max-width:800px) {
+    .img img{
+        width: 300px;
+    }
+    .logincontainer{
+        width: 150px;
+    }
+}
+
