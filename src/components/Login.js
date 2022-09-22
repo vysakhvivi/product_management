@@ -4,9 +4,21 @@ import Logoside from '../images/Login_Side.png'
 import wave from '../images/wave.png'
 import avatar from '../images/avatar.png'
 import {Link} from 'react-router-dom'
+import {useFormik} from 'formik'
 
 
 function Login() {
+
+  const {values,errors,touched,handleBlur,handleChange,handleSubmit} = useFormik({
+    initialValues:initialValues,
+    validationSchema:registerSchema,
+    onSubmit:(val̥u̥es) => {
+     
+    }
+  })
+
+
+
   return (
     <div>
       <img className='wave' src={wave} />
@@ -24,7 +36,7 @@ function Login() {
               </div>
               <div>
                 <h5>Email</h5>
-                <input className='input' type='email'  />
+                <input className='input' type='email' name='Loginemail' id='email'  />
               </div>
             </div>
             <div className='inputdiv two focus'>
@@ -33,7 +45,7 @@ function Login() {
               </div>
               <div>
                 <h5>Password</h5>
-                <input className='input' type='password'/>
+                <input className='input' type='password' name='loginpassword' id='password'/>
               </div>
               
             </div>
