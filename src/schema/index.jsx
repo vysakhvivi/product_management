@@ -6,3 +6,8 @@ export const registerSchema=Yup.object({
     place:Yup.string().required("Enter your Location"),
     password:Yup.string().min(6).required("Please Enter the Password")
 })
+
+export const loginSchema=Yup.object({
+    email:Yup.string().email().required("Please Enter the Email"),
+    password:Yup.string().min(6).required("Please Enter the password")
+})

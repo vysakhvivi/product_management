@@ -5,14 +5,21 @@ import wave from '../images/wave.png'
 import avatar from '../images/avatar.png'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
+import { loginSchema } from '../schema'
+
+const initialValues={
+email:"",
+password:"",
+};
 
 
 function Login() {
 
   const {values,errors,touched,handleBlur,handleChange,handleSubmit} = useFormik({
     initialValues:initialValues,
-    validationSchema:registerSchema,
-    onSubmit:(val̥u̥es) => {
+    validationSchema:loginSchema,
+    onSubmit:(vḁl̥u̥es) => {
+      console.log('vḁl̥u̥es: ', vḁl̥u̥es);
      
     }
   })
@@ -27,7 +34,7 @@ function Login() {
           <img src={Logoside} />
         </div>
         <div className='logincontainer'>
-          <form>
+          <form onSubmit={handleSubmit}>
             <img src={avatar} className='avatar'/>
             <h2>Welcome</h2>
             <div className='inputdiv one focus'>
@@ -36,7 +43,8 @@ function Login() {
               </div>
               <div>
                 <h5>Email</h5>
-                <input className='input' type='email' name='Loginemail' id='email'  />
+                <input className='input' autoComplete='off' type='email' name='email' id='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                { errors.email && touched.email ? (<p className='form-error1'>{errors.email}</p>) :null }
               </div>
             </div>
             <div className='inputdiv two focus'>
@@ -45,7 +53,8 @@ function Login() {
               </div>
               <div>
                 <h5>Password</h5>
-                <input className='input' type='password' name='loginpassword' id='password'/>
+                <input className='input' autoComplete='off' type='password' name='password' id='password' value={values.password} onChange={handleChange} onBlur={handleBlur}/>
+                { errors.password && touched.password ? (<p className='form-error'>{errors.password}</p>) :null }
               </div>
               
             </div>

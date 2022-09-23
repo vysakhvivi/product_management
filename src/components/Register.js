@@ -44,7 +44,7 @@ function Register() {
               </div>
               <div>
                 <h5>Username</h5>
-                <input className='inp2' type='text' name='username' value={values.username} onChange={handleChange} onBlur={handleBlur} />
+                <input className='inp2' type='text' autoComplete='off' name='username' value={values.username} onChange={handleChange} onBlur={handleBlur} />
                 { errors.username && touched.username ? (<p className='form-error'>{errors.username}</p>) :null }
               </div>
             </div>
@@ -54,7 +54,7 @@ function Register() {
               </div>
               <div>
                 <h5>Email</h5>
-                <input className='inp2' type='email' name='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                <input className='inp2' type='email' autoComplete='off' name='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
                 { errors.email && touched.email ? (<p className='form-error'>{errors.email}</p>) :null }
 
               </div>
@@ -65,7 +65,7 @@ function Register() {
               </div>
               <div>
                 <h5>Place</h5>
-                <input className='inp2' type='text' name='place' value={values.place} onChange={handleChange} onBlur={handleBlur} />
+                <input className='inp2' type='text' autoComplete='off' name='place' value={values.place} onChange={handleChange} onBlur={handleBlur} />
                 { errors.place && touched.place ? (<p className='form-error'>{errors.place}</p>) :null }
               </div>
             </div>
@@ -75,7 +75,7 @@ function Register() {
               </div>
               <div>
                 <h5 className='pass1'>Password</h5>
-                <input className='inp2' type='password' name='password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                <input className='inp2' type='password' autoComplete='off' name='password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
                 { errors.password && touched.password ? (<p className='form-error'>{errors.password}</p>) :null }
               </div>
 
