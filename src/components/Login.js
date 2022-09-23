@@ -6,11 +6,14 @@ import avatar from '../images/avatar.png'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
 import { loginSchema } from '../schema'
+import { useDispatch } from 'react-redux'
+import {login} from '../redux/userSlice'
 
 const initialValues={
 email:"",
 password:"",
 };
+
 
 
 function Login() {
@@ -23,6 +26,14 @@ function Login() {
      
     }
   })
+  const dispatch=useDispatch();
+
+  dispatch(login({
+    email:values.email,
+    password:values.password,
+    loggedIn:true,
+  }))
+
 
 
 
