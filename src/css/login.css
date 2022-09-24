@@ -201,6 +201,9 @@ form h2{
         width: 200px;
         
        }
+       .wave{
+        width: 70%;
+       }
         }
 
 @media screen and (max-width:800px) {
@@ -210,5 +213,19 @@ form h2{
     .logincontainer{
         width: 150px;
     }
+    .wave{
+        width: 50%;
+    }
 }
-
+@media screen and (max-width:700px) {
+    .img img{
+        display: none;
+    }
+    .logincontainer{
+        width: 150px;
+        justify-content: flex-start;
+    }
+    .wave{
+        width: 50%;
+    }
+}

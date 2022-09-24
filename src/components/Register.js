@@ -82,7 +82,7 @@ function Register() {
             </div>
 
             <input type='submit' className='button1 Loginbutton1' value='REGISTER' />
-            <Link to={'/login'} className='notuser1' >Already a user? Login here</Link>
+            <Link to={'/'} className='notuser1' >Already a user? Login here</Link>
           </form>
 
         </div>

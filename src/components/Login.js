@@ -6,8 +6,6 @@ import avatar from '../images/avatar.png'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
 import { loginSchema } from '../schema'
-import { useDispatch } from 'react-redux'
-import {login} from '../redux/userSlice'
 
 const initialValues={
 email:"",
@@ -26,15 +24,7 @@ function Login() {
      
     }
   })
-  const dispatch=useDispatch();
-
-  dispatch(login({
-    email:values.email,
-    password:values.password,
-    loggedIn:true,
-  }))
-
-
+  
 
 
   return (
@@ -47,7 +37,7 @@ function Login() {
         <div className='logincontainer'>
           <form onSubmit={handleSubmit}>
             <img src={avatar} className='avatar'/>
-            <h2>Welcome</h2>
+            <h2>LOGIN</h2>
             <div className='inputdiv one focus'>
               <div className='i'>
               <i class="fas fa-at"></i>
@@ -80,6 +70,7 @@ function Login() {
           
         </div>
       </div>
+     
       </div>
   )
 }
