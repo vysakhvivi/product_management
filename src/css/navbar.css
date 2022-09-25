@@ -4,13 +4,21 @@
     padding-left: 50px;
 }
 
+.nav{
+    position:fixed;
+    width: 100vw;
+    z-index: 1000;
+}
+
 .navbar{
+    
     background-color: white;
     color: black;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
 
 *{
@@ -47,6 +55,7 @@ i{
 i:hover{
     color: #E94560;
 }
+
 
 
 
