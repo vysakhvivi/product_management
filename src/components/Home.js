@@ -1,13 +1,13 @@
 import React from 'react'
 import '../css/home/home.css'
 import sliderbg from '../images/home/slider-left.png'
-import ResponsiveAppBar from './Navbar'
+import Navbar from './Navbar'
 
 function Home() {
   return (
     <div>
       
-          <ResponsiveAppBar/>
+          <Navbar/>
 
       {/* Main Starts */}
 

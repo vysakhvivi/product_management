@@ -1,0 +1,52 @@
+
+.productlogo{
+    width: 230px;
+    padding-left: 50px;
+}
+
+.navbar{
+    background-color: white;
+    color: black;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+ul li a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li a:hover{
+    color: #E94560;
+
+}
+
+i{
+  padding-right: 50px;
+  color: black;
+}
+
+i:hover{
+    color: #E94560;
+}
+
+
+
