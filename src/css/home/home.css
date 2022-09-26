@@ -185,38 +185,6 @@ padding-top: 100px;
   color: #fff;
 }
 
-.first-service .icon {
-  background-image: url();
-}
-
-.first-service:hover .icon {
-  background-image: url();
-}
-
-.second-service .icon {
-  background-image: url();
-}
-
-.second-service:hover .icon {
-  background-image: url();
-}
-
-
-.third-service .icon {
-  background-image: url();
-}
-
-.third-service:hover .icon {
-  background-image: url();
-}
-
-.fourth-service .icon {
-  background-image: url();
-}
-
-.fourth-service:hover .icon {
-  background-image: url();
-}
 
 .service-item:hover
 {

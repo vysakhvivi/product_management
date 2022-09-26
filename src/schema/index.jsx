@@ -10,7 +10,9 @@ export const registerSchema=Yup.object({
 export const addproductSchema=Yup.object({
     brandname:Yup.string().min(3).max(25).required("Please Enter the Brand Name !!"),
     productname:Yup.string().min(3).max(25).required("Please Enter the Product Name !!"),
-    productimage:Yup.mixed().required("Image is Required !!"),
+    Picture:Yup.mixed().required("Image is Required !!")
+    .test("FILE_SIZE","Image Too big !" ,(value) => value && value < 1400 * 1400)
+    .test("FILE_TYPE","Invalid File type",(value) => value && ['image/png','image/jpeg','image/jpg'].includes(value.type)),
     quantity:Yup.number().min(1).max(1000).required("Enter the Quantity of the product !!"),
     price:Yup.number().min(10).max(10000000).required("Enter the price of the product !!"),
     description:Yup.string().min(10).max(1000).required("Enter the product description !!")

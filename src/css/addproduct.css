@@ -4,14 +4,15 @@
     margin: 0;
 }
 .addcontainer{
-    padding-left: 280px;
-    padding-right: 200px;
-    padding-top: 100px;
+    padding: 150px;
     background-image: url(../images/home/addproduct.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .addcontainer2 {
@@ -21,12 +22,18 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     padding-top: 60px;
+    align-items: center;
+    justify-content: center;
+
     }
     
     .addform {
          grid-area: 1 / 1 / 2 / 2; 
          padding-left: 10%;
          width:100%;
+         align-items: center;
+         justify-content: center;
+         padding-left: 200px;
         }
 
 
@@ -76,11 +83,15 @@
 
 .inputdiv.focus .i i{
     top: -10px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .i i{
     color: #d9d9d9;
+}
+
+body .inputdiv .blackicon i{
+    color:black;
 }
 
 .inputdiv >div{
@@ -89,7 +100,7 @@
 }
 
 .inputdiv.focus div h5{
-    top:-10px;
+    top:-12px;
     font-size: 15px;
 }
 
@@ -104,6 +115,7 @@
 }
 
 .input{
+    width: 100%;
     position: relative;
     border: none;
     outline: none;
@@ -112,6 +124,11 @@
     font-size: 1rem;
     color: #555;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.redside{
+    color:black;
     font-weight: 600;
 }
 
@@ -129,9 +146,64 @@ body .e1{
 
 .form-error1{
     font-size: 11px;
-    margin-top: -10px;
+    margin-top: -5px;
     color: #e92c4c;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     background: none;
 }
+
+body .inputdiv .description{
+    padding-top: 3px;
+    height:100px;
+    overflow-y: hidden;
+}
+
+body .six{
+    height:140px;
+}
+
+.submit1{
+    text-align: center;
+    padding-top: 40px;
+}
+
+
+.submitbutton{
+    padding: 1.3em 3em;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    width: 400px;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .submitbutton:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+    border:none;
+  }
+
+  .submit2{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  .submitbutton:active {
+    transform: translateY(-1px);
+  }
