@@ -3,7 +3,8 @@ import Navbar from './Navbar'
 import { Formik, useFormik } from 'formik'
 import { addproductSchema } from '../schema'
 import '../css/addproduct.css'
-import { useState } from 'react'
+import Previewimage from './Previewimage'
+
 
 
 const initialValues = {
@@ -39,6 +40,8 @@ function Addproduct() {
     return (
         <div>
             <Navbar />
+            
+
             <div className='addcontainer'>
                 <div className='addheading'>
                     <h2>ADD Products</h2>
@@ -81,6 +84,8 @@ function Addproduct() {
                                     onChange={(e)=>setFieldValue("picture",e.target.files[0])}
                                     
                                     onBlur={handleBlur} />
+
+                                    {values.picture && <Previewimage file={values.picture} /> }
                                    
                                     {errors.picture && touched.picture ? (<p className='form-error1 imagerror'>{errors.picture}</p>) : null}
                                 </div>
@@ -153,12 +158,15 @@ function Addproduct() {
                     <form onSubmit={handleSubmit} className='submit2'>
                         <input type='submit' className='submitbutton' value='SUBMIT' />
 
-
+                            
                     </form>
                 </div>
-
-
+                <>
+                
+                </>
+                
             </div>
+            
         </div>
     )
 }
