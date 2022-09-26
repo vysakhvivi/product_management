@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.addcontainer{
+    padding-left: 280px;
+    padding-right: 200px;
+    padding-top: 100px;
+    background-image: url(../images/home/addproduct.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.addcontainer2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding-top: 60px;
+    }
+    
+    .addform {
+         grid-area: 1 / 1 / 2 / 2; 
+         padding-left: 10%;
+         width:100%;
+        }
+
+
+  
+.addheading{
+    text-align: center;
+}
+
+.addheading h2{
+    color: #E94560;
+    padding-bottom:10px;
+    font-size:1.8rem;
+}
+
+.addheading p{
+    color:black;
+    font-size: .8rem;
+}
+
+.inputdiv{
+    position: relative;
+    margin: 25px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid #d9d9d9;
+    width:100%;
+}
+
+
+.inputdiv.one{
+    margin-top: 10px;
+}
+
+.inputdiv.two{
+    margin-bottom: 10px;
+}
+
+.inputdiv .i i{
+    color:#e92c4c
+}
+
+.i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inputdiv.focus .i i{
+    top: -10px;
+    font-size: 15px;
+}
+
+.i i{
+    color: #d9d9d9;
+}
+
+.inputdiv >div{
+    position: relative;
+    height: 40px;
+}
+
+.inputdiv.focus div h5{
+    top:-10px;
+    font-size: 15px;
+}
+
+.inputdiv > div h5{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2b2929;
+    font-size: 19px;
+    transition: .3s;
+}
+
+.input{
+    position: relative;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.three{
+    height:80px;
+}
+
+body .imagerror{
+    margin-top: 10px;
+}
+
+body .e1{
+    color: black;
+}
+
+.form-error1{
+    font-size: 11px;
+    margin-top: -10px;
+    color: #e92c4c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background: none;
+}
