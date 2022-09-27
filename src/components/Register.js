@@ -4,8 +4,12 @@ import registerside from '../images/Register_side.png'
 import wave from '../images/wave.png'
 import avatar from '../images/avatar.png'
 import { Link } from 'react-router-dom'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import { registerSchema } from '../schema'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
+
+
 
 const initialValues={
   username:"",
@@ -15,6 +19,8 @@ const initialValues={
 };
 
 function Register() {
+
+  const navigate=useNavigate();
 
   const {values,errors,touched,handleBlur,handleChange,handleSubmit} = useFormik({
     initialValues:initialValues,
@@ -26,17 +32,60 @@ function Register() {
     }
   })
 
+
+  const PostData = async(res) => {
+    res.preventDefault();
+
+    const {username,email,place,password} = values;
+
+    await axios.post("http://localhost:5000/register",{
+    username, email, place, password
+   })
+   
+   .then((response)=>{
+      console.log(response.data);
+      window.alert("Registration Successfull.. Please Log in now")
+      navigate('/')
+   })
+   .catch((err)=>{
+    console.log(err)
+    console.log(err.response)
+    window.alert("Registration unsuccessfull. Please Check you details.")
+   })
+
+
+    // const res = await fetch('/register', {
+    //     method : "POST" ,
+    //     headers: {
+    //         "Content-Type" : "application/json"
+    //     } ,
+    //     body : JSON.stringify ( {
+    //     username,email,place,password
+    //     } )
+    //   })
+
+    //   const data= await res.json();
+    //   if(res.status === 422 || !data )
+    //   {
+    //   alert("invalid registration")
+    //   }
+    //   else{
+    //     alert("Registration successfull")
+
+    //     History.pushState('/')
+    //   }
+    }
   return (
     <div>
 
-      <img className='wave1' src={wave} />
+      <img className='wave1' src={wave} alt="pic" />
       <div className='container1'>
         <div className='img1'>
-          <img src={registerside} />
+          <img src={registerside} alt="pic"/>
         </div>
         <div className='Registercontainer'>
-          <form className='form1' onSubmit={handleSubmit}>
-            <img src={avatar} className='avatar1' />
+          <form method='POST' className='form1' onSubmit={handleSubmit}>
+            <img src={avatar} className='avatar1' alt='pic' />
             <h2>Registration</h2>
             <div className='inputdiv1 one focus1'>
               <div className='i1'>
@@ -59,7 +108,7 @@ function Register() {
 
               </div>
             </div>
-            <div className='inputdiv1 three focus1'>
+            <div className='inputdiv1 focus1'>
               <div className='i1'>
                 <i class="fas fa-map-marker-alt"></i>
               </div>
@@ -81,7 +130,7 @@ function Register() {
 
             </div>
 
-            <input type='submit' className='button1 Loginbutton1' value='REGISTER' />
+            <input type='submit' className='button1 Loginbutton1' value='REGISTER' onClick={PostData} />
             <Link to={'/'} className='notuser1' >Already a user? Login here</Link>
           </form>
 

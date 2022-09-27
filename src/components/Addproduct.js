@@ -111,7 +111,7 @@ function Addproduct() {
 
                         </form>
                     </div>
-                    <div className='addpicture '>
+                    <div className='addpicture'>
                         <div className='addform'>
                             <form onSubmit={handleSubmit}>
 
