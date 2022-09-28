@@ -36,7 +36,7 @@ function Login() {
 
     await axios.post("http://localhost:5000/",{
     email, password
-   })
+   },{ withCredentials: true })
    
    .then((response)=>{
       console.log(response.data);
