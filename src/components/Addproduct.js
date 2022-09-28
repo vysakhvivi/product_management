@@ -1,9 +1,11 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import { addproductSchema } from '../schema'
 import '../css/addproduct.css'
 import Previewimage from './Previewimage'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -22,6 +24,8 @@ const initialValues = {
 
 function Addproduct() {
 
+    const navigate=useNavigate();
+
     const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
         validationSchema: addproductSchema,
@@ -30,6 +34,28 @@ function Addproduct() {
 
         }
     })
+
+
+
+    const PostAdd= async (e) =>{
+    e.preventDefault();
+
+    const {brandname,productname,picture,quantity,price,description}=values;
+        
+    await axios.post("http://localhost:5000/addproduct",{
+        brandname,productname,picture,quantity,price,description
+       })
+       
+       .then((response)=>{
+          console.log(response.data);
+          window.alert("Product added successfully")
+       })
+       .catch((err)=>{
+        console.log(err)
+        console.log(err.response)
+        window.alert("Error adding Product Details")
+       })
+    }
 
 
 
@@ -156,7 +182,7 @@ function Addproduct() {
                 </div>
                 <div className='submit1'>
                     <form onSubmit={handleSubmit} className='submit2'>
-                        <input type='submit' className='submitbutton' value='SUBMIT' />
+                        <input type='submit' className='submitbutton' value='SUBMIT' onClick={PostAdd} />
 
                             
                     </form>
