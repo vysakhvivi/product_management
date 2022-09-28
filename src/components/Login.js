@@ -41,7 +41,8 @@ function Login() {
    .then((response)=>{
       console.log(response.data);
       window.alert("Login successfull")
-      navigate('/home')
+      
+      navigate('/homepage')
    })
    .catch((err)=>{
     console.log(err)

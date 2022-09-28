@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../css/home/home.css'
 import footerimage from '../images/home/footer-bg.png'
 import sliderbg from '../images/home/slider-left.png'
@@ -6,8 +6,43 @@ import Navbar from './Navbar'
 import additem from '../images/homeicons/additem.svg'
 import edititem from '../images/homeicons/setting-3.svg'
 import listitem from '../images/homeicons/shopping-cart.svg'
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import { NavigateBefore } from '@mui/icons-material'
 
 function Home() {
+
+  const navigate=useNavigate();
+
+  // const callHomePage= async(req,res) =>{
+  //     try{
+  //         await axios.get('http://localhost:5000/homepage',{
+  //         Headers:{
+  //           "Accept":"application/json",
+  //           "Content-Type":"application/json"
+  //         }
+  //        },{ withCredentials: true })
+
+  //        const data = await res.json();
+  //        console.log(data);
+
+  //        if(!res.status === 200){
+  //         const error = new Error(res.error)
+  //         throw error;
+  //        }
+  //     }
+      
+      
+  //     catch(err){
+  //         navigate('/')
+  //     }
+  // }
+
+  // useEffect(() => {
+   
+  //   callHomePage();
+  // }, [])
+  
   return (
     <div>
 
@@ -103,6 +138,9 @@ function Home() {
           <div className='contactdiv'>
             <a href="/" className='contactme'>
               <button class="bn54">
+                <form method='GET'>
+                  
+                </form>
                 <span class="bn54span">Contact Me</span>
               </button>
             </a>
