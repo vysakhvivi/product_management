@@ -34,13 +34,15 @@ function Login() {
 
     const {email,password} = values;
 
-    const response = await axios.post("http://localhost:5000/",{
+    await axios.post("http://localhost:5000/",{
     email, password
    },{ withCredentials: true })
-   
+      
+
    .then((response)=>{
-      console.log(response.data);
-      window.alert("Login successfull")
+      const tokendata= response.data
+      localStorage.setItem('jtoken',tokendata)
+      alert("Login successfull")
       navigate('/homepage')
    })
    .catch((err)=>{
@@ -48,6 +50,8 @@ function Login() {
     console.log(err.response)
     window.alert("Please Enter the correct details")
    })
+
+   
   }
   
 

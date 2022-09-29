@@ -1,18 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../css/home/home.css'
-import footerimage from '../images/home/footer-bg.png'
-import sliderbg from '../images/home/slider-left.png'
+
 import Navbar from './Navbar'
 import additem from '../images/homeicons/additem.svg'
 import edititem from '../images/homeicons/setting-3.svg'
 import listitem from '../images/homeicons/shopping-cart.svg'
-import {useNavigate} from 'react-router-dom'
-import axios from 'axios'
-import { NavigateBefore } from '@mui/icons-material'
+
 
 function Home() {
 
-  const navigate=useNavigate();
+
 
   // const callHomePage= async(req,res) =>{
   //     try{
@@ -88,7 +85,7 @@ function Home() {
         </div>
         <div class="servicecontainer">
           <div class="cont2">
-            <a href="" className='itemservice'>
+            <a href="/addproduct" className='itemservice'>
               <div class="itemcard">
                 <div class="service-item first-service">
                   <div class="icon">
@@ -100,7 +97,7 @@ function Home() {
                 </div>
               </div>
             </a>
-            <a href="" className='itemservice'>
+            <a href="/editproduct" className='itemservice'>
               <div class="itemcard">
                 <div class="service-item second-service">
                   <div class="icon">
@@ -112,11 +109,11 @@ function Home() {
                 </div>
               </div>
             </a>
-            <a href="" className='itemservice'>
+            <a href="/listproduct" className='itemservice'>
               <div class="itemcard">
                 <div class="service-item third-service">
                   <div class="icon">
-                    <img src={listitem} alt="List item image" className='servicelogo' />
+                    <img src={listitem} alt="List item logo" className='servicelogo' />
                   </div>
                   <h4>List Products</h4>
                   <p>Click here to list the details of all the products that are registered under the loggedin user.</p>
