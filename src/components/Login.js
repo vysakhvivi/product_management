@@ -84,7 +84,7 @@ function Login() {
               <div>
                 <h5>Password</h5>
                 <input className='input' autoComplete='off' type='password' name='password' id='password' value={values.password} onChange={handleChange} onBlur={handleBlur}/>
-                { errors.password && touched.password ? (<p className='form-error'>{errors.password}</p>) :null }
+                { errors.password && touched.password ? (<p className='form-error errlogin'>{errors.password}</p>) :null }
               </div>
               
             </div>
