@@ -43,10 +43,10 @@ function Addproduct() {
 
         const { brandname, productname, picture, quantity, price, description } = values;
 
-        const tokendata = localStorage.getItem('jtoken')
+        const email = localStorage.getItem('email')
 
         await axios.post("http://localhost:5000/addproduct", {
-            brandname, productname, quantity, price, description, tokendata
+            brandname, productname, quantity, price, description, email
         })
 
             .then((response) => {

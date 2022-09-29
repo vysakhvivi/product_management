@@ -40,8 +40,10 @@ function Login() {
       
 
    .then((response)=>{
-      const tokendata= response.data
-      localStorage.setItem('jtoken',tokendata)
+      const data= response.data
+      const email=data.email
+      localStorage.setItem('email',email)
+      localStorage.setItem('userdata',data)
       alert("Login successfull")
       navigate('/homepage')
    })
