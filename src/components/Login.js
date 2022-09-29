@@ -34,14 +34,13 @@ function Login() {
 
     const {email,password} = values;
 
-    await axios.post("http://localhost:5000/",{
+    const response = await axios.post("http://localhost:5000/",{
     email, password
    },{ withCredentials: true })
    
    .then((response)=>{
       console.log(response.data);
       window.alert("Login successfull")
-      
       navigate('/homepage')
    })
    .catch((err)=>{
