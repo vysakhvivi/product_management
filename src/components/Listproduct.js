@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
 
@@ -6,28 +6,41 @@ import axios from 'axios';
 
 function Listproduct() {
 
-  const [products,setProducts]=useState([]);
+  const [products, setProducts] = useState([]);
 
-  const email= localStorage.getItem('email')
+  const email = localStorage.getItem()
 
-  const getproducts=async()=>{
-    let result = axios.get('http://localhost5000/listproduct',{
-        params:{
-          email:email
-        }
-    })
-    result= await result.json()
-    setProducts(result)
- 
-  }
-  
+
+  const username = localStorage.getItem('username')
+
+
+  useEffect(() => {
+    
+  }, [])
+
+  // const getproductdata = async (req, res) => {
+  //   await axios.get('http://localhost5000/listproduct', {
+  //     params: {
+  //       'username': username
+  //     }
+  //   })
+  //     .then(res => {
+  //       const result = res.data
+  //       setProducts(result)
+  //     })
+  //     .catch(err => {
+
+  //     })
+  // }
+
+
 
 
   return (
 
 
     <div>
-        
+      <h2>hello .. this is list product page.</h2>
     </div>
   )
 }

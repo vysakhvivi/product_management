@@ -42,8 +42,9 @@ function Login() {
    .then((response)=>{
       const data= response.data
       const email=data.email
+      const username=data.username
       localStorage.setItem('email',email)
-      localStorage.setItem('userdata',data)
+      localStorage.setItem('username',username)
       alert("Login successfull")
       navigate('/homepage')
    })
