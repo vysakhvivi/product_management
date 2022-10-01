@@ -10,9 +10,9 @@ function Navbar() {
       <nav className='navbar'>
         <img src={logo} alt='alternate text' className='productlogo' />
         <ul className='list'>
-          <li className='listitems'><a href='' >Home</a></li>
-          <li className='listitems'><a href='' >Add Product</a></li>
-          <li className='listitems'><a href='' >List Product</a></li>
+          <li className='listitems'><a href='./homepage' >Home</a></li>
+          <li className='listitems'><a href='./addproduct' >Add Product</a></li>
+          <li className='listitems'><a href='./listproduct' >List Product</a></li>
 
         </ul>
         <a href=""><i className='userlogo' class="fas fa-user-circle fa-2x"></i> </a>

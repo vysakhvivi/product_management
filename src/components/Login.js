@@ -76,7 +76,14 @@ function Login() {
               </div>
               <div>
                 <h5>Email</h5>
-                <input className='input' autoComplete='off' type='email' name='email' id='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                <input className='input'
+                 autoComplete='off' 
+                 type='email' 
+                 name='email'
+                  id='email'
+                   value={values.email}
+                    onChange={handleChange}
+                     onBlur={handleBlur} />
                 { errors.email && touched.email ? (<p className='form-error1'>{errors.email}</p>) :null }
               </div>
             </div>

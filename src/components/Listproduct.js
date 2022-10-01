@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Productitem from '../components/Productitem'
 import { BrandingWatermarkRounded } from '@mui/icons-material';
+import Navbar from './Navbar'
+import '../css/listproduct.css'
+import Table from 'react-bootstrap/Table';
 
 
 
@@ -10,7 +13,7 @@ function Listproduct() {
 
   const [products, setProducts] = useState([]);
 
-  const [products2,setProducts2] = useState([])
+  const [products2, setProducts2] = useState([])
 
   const email = localStorage.getItem('email')
 
@@ -26,35 +29,37 @@ function Listproduct() {
 
 
 
-  const getproducts = async()=>{
-    let result=await axios.get('http://localhost:5000/listproduct',{
-      params:{
-        'username':username
+  const getproducts = async () => {
+    let result = await axios.get('http://localhost:5000/listproduct', {
+      params: {
+        'username': username
       }
     })
-      .then((res)=>{
+      .then((res) => {
         setProducts(res.data)
         setProducts2(res.data.products)
       })
-      .catch((err)=>{
-          console.log(err)
+      .catch((err) => {
+        console.log(err)
       })
 
-      
-    
+
+
   }
 
-  let content=null
+  let content = null
 
   console.log(products)
 
   console.table(products2)
 
-  const items = products2.map((item)=>{
-    return <Productitem brandname={item.brandname} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description}/>
+  const items = products2.map((item) => {
+    return <Productitem brandname={item.brandname} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} />
   })
 
-  
+  console.log(items)
+
+
 
   // const getproductdata = async (req, res) => {
   //   await axios.get('http://localhost5000/listproduct', {
@@ -73,11 +78,19 @@ function Listproduct() {
 
 
   return (
-
-
     <div>
-      {items}
-    </div>
+      <Navbar />
+      <div className='listcontainer'>
+        <div className='listheading'>
+      <h1>LIST PRODUCTS</h1>
+      <p>Here you can view all the products added in your inventory</p>
+        </div>
+        <div className='products'>
+        {items}
+        </div>
+            
+      </div>
+     </div>
   )
 }
 
