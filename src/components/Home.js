@@ -97,18 +97,7 @@ function Home() {
                 </div>
               </div>
             </a>
-            <a href="/editproduct" className='itemservice'>
-              <div class="itemcard">
-                <div class="service-item second-service">
-                  <div class="icon">
-                    <img src={edititem} alt="edit item logo" className='servicelogo' />
-                  </div>
-                  <h4>Update Products</h4>
-                  <p>Click here to update the product details of the user such as Brand name, Product name, Product image, Product quanitity, Product Description etc.</p>
-
-                </div>
-              </div>
-            </a>
+            
             <a href="/listproduct" className='itemservice'>
               <div class="itemcard">
                 <div class="service-item third-service">

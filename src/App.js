@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Addproduct from './components/Addproduct';
 import Editproduct from './components/Editproduct';
 import ListProduct from './components/Listproduct'
+import Product from './components/Product';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom' 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/addproduct' element={<Addproduct/>}/>
         <Route path='/editproduct' element={<Editproduct/>} />
         <Route path='/listproduct' element={<ListProduct/>} />
+        <Route path='/product' element={<Product/>} />
       </Routes>
     
     </Router>
