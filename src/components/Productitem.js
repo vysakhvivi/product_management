@@ -1,12 +1,46 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import '../css/productitem.css'
 import productimage from '../images/product/2.png'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
-function Productitem({ brandname, productname, quantity, price, description }) {
+
+
+function Productitem({ brandname, productname, quantity, price, description ,productid}) {
+
+  
+
+
+
+const deletedata= async (id)=>{
+  console.log(id)
+ const result =  await axios.delete(`localhost:5000/deleteproduct`,{
+params:{
+  'id':id
+}, 
+headers: {
+  Accept: 'application/json; charset=utf-8',
+  'Content-Type': 'application/json',
+},
+withCredentials:true
+})
+  .then((res) => {
+  res.status(200).send('successfuully logged in ')
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+
+
+}
+
+
+
+
   return (
     <div >
-      <a href="" className='productclick'>
+      <a href="./product" className='productclick'>
         <div className='itemcontainer'>
           <div class="card">
             <div class="left">
@@ -26,26 +60,38 @@ function Productitem({ brandname, productname, quantity, price, description }) {
                     <div className='productp1'>
                       <p className='productquantity'>Quantity:</p>
                       <p className='p2'>{quantity}</p>
+                      <h5 className='p2'>{productid}</h5>
                     </div>
         
                 </div>
+               
                 <div className='productbuttons'>
-                  <div className='button1'>
-                    <button class="button123">
-                      <span class="button-content">edit </span>
-                    </button>
-                  </div>
-                  <div className='button2'>
-                    <button class="button1234">
-                      <span class="button-content">Delete </span>
-                    </button>
-                  </div>
+                  
+                    <form action="">
+                      <div className='editbutton'>
+                        <Link id='RouterNavLink' type='button' to={"/editproduct/"+productid} class="editbuttonlink">
+                          <span class="editbuttoncontent">edit </span>
+                        </Link>
+                      </div>
+                    </form>
+                    <form action="" >
+                      <div className='button2'>
+                        <button class="button1234" onClick={()=>deletedata({productid})}>
+                          <span class="button-content">Delete </span>
+                        </button>
+                      
+                      </div>
+                    </form>
+
+                  
                 </div>
+               
               </div>
             </div>
           </div>
         </div>
       </a>
+     
     </div>
   )
 }

@@ -49,15 +49,11 @@ function Listproduct() {
 
   let content = null
 
-  console.log(products)
 
-  console.table(products2)
-
-  const items = products2.map((item) => {
-    return <Productitem brandname={item.brandname} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} />
+  const items = products2.map((item,i) => {
+    return <Productitem brandname={item.brandname} key={i} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} productid={item._id} />
   })
 
-  console.log(items)
 
 
 

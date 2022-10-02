@@ -47,8 +47,6 @@
   margin-left: 200px;
 }
 
-
-
 .productp{
   display: flex;
   margin-top: 3px;
@@ -182,8 +180,10 @@ color: black;
   color: #000000;
 }
 
+
+
 .button2{
-  margin-top: -30px;
+  margin-top: px;
 }
 
 .button123::before {
@@ -221,5 +221,31 @@ color: black;
     rgb(189, 0, 47) 94.3%
   );
   transition: all 0.475s;
+}
+
+.editbutton{
+  width: 100px;
+  height: 40px;
+  margin-top:30px;
+}
+
+.editbuttonlink{
+  position: relative;
+  overflow: hidden;
+  height: 2.2rem;
+  width: 190px;
+  border-radius: 15px;
+  margin-top: -90px;
+  background: #ffffff;
+  background-size: 400%;
+  color: #fff;
+}
+
+.editbuttoncontent{
+  position: relative;
+  z-index: 30;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000000;
 }
 

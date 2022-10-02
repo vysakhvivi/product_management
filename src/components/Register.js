@@ -45,7 +45,7 @@ function Register() {
    .then((response)=>{
       console.log(response.data);
       window.alert("Registration Successfull.. Please Log in now")
-      navigate('/')
+      navigate('/login')
    })
    .catch((err)=>{
     console.log(err)
@@ -131,7 +131,7 @@ function Register() {
             </div>
 
             <input type='submit' className='button1 Loginbutton1' value='REGISTER' onClick={PostData} />
-            <Link to={'/'} className='notuser1' >Already a user? Login here</Link>
+            <Link to={'/login'} className='notuser1' >Already a user? Login here</Link>
           </form>
 
         </div>

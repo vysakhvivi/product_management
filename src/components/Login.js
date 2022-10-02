@@ -46,7 +46,7 @@ function Login() {
       localStorage.setItem('email',email)
       localStorage.setItem('username',username)
       alert("Login successfull")
-      navigate('/homepage')
+      navigate('/')
    })
    .catch((err)=>{
     console.log(err)

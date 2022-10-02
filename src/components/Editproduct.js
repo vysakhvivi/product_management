@@ -1,11 +1,12 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Navbar from './Navbar'
 import { useFormik } from 'formik'
-import { addproductSchema } from '../schema'
+import { editproductSchema } from '../schema'
 import '../css/editproduct.css'
 import Previewimage from './Previewimage'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 const initialValues = {
   brandname: "",
@@ -13,18 +14,35 @@ const initialValues = {
   picture: "",
   quantity: "",
   price: "",
-  description: ""
-
+  description: "",
 };
 
 
+
+
+
+
+
+
 function Editproduct() {
+
+    const [productdata, setProductdata] = useState([]);
+        
+        const params=useParams()
+
+    useEffect(() => {
+       
+        console.warn(id)
+        PostEdit()
+      }, [])
+
+    const id=params.id
 
   const navigate=useNavigate();
 
     const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
-        validationSchema: addproductSchema,
+        validationSchema: editproductSchema,
         onSubmit: (vḁl̥u̥es) => {
             console.log('vḁl̥u̥es: ', vḁl̥u̥es);
 
@@ -32,25 +50,23 @@ function Editproduct() {
     })
 
 
+    const PostEdit= async (req,res) =>{
 
-    const PostAdd= async (e) =>{
-    e.preventDefault();
-
-    const {brandname,productname,picture,quantity,price,description}=values;
-        
-    await axios.post("http://localhost:5000/addproduct",{
-        brandname,productname,picture,quantity,price,description
-       })
-       
-       .then((response)=>{
-          console.log(response.data);
-          window.alert("Product added successfully")
-       })
-       .catch((err)=>{
+    const result= await axios.get('http://localhost5000/editproduct',{
+        params:{
+            'id':id
+        }
+    })
+    .then((res) => {
+        setProductdata(res.data.products)
+      })
+      .catch((err) => {
         console.log(err)
-        console.log(err.response)
-        window.alert("Error adding Product Details")
-       })
+      })
+        
+
+    console.log("data is",productdata)
+
     }
 
 
@@ -182,7 +198,7 @@ function Editproduct() {
                 </div>
                 <div className='submit1'>
                     <form onSubmit={handleSubmit} className='submit2'>
-                        <input type='submit' className='submitbutton' value='UPDATE' onClick={PostAdd} />
+                        <input type='submit' className='submitbutton' value='SUBMIT' onClick={PostEdit} />
 
                             
                     </form>
