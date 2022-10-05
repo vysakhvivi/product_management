@@ -5,8 +5,8 @@ import { addproductSchema } from '../schema'
 import '../css/addproduct.css'
 import Previewimage from './Previewimage'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { Token } from '@mui/icons-material'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProduct } from '../action/productActions'
 
 
 
@@ -25,23 +25,28 @@ const initialValues = {
 
 function Addproduct() {
 
-    const navigate = useNavigate();
 
-    const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
+    const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
         initialValues: initialValues,
         validationSchema: addproductSchema,
-        onSubmit: (vḁl̥u̥es) => {
+        onSubmit: (vḁl̥u̥es,{resetForm}) => {
+            
             console.log('vḁl̥u̥es: ', vḁl̥u̥es);
-
+            resetForm()
+            
         }
     })
 
+    const product=useSelector((state)=> state)
+    const dispatch=useDispatch()
 
 
     const PostAdd = async (e) => {
         e.preventDefault();
 
-        const { brandname, productname, picture, quantity, price, description } = values;
+       
+
+        const { brandname, productname, quantity, price, description } = values;
 
         const email = localStorage.getItem('email')
 
@@ -52,18 +57,18 @@ function Addproduct() {
             .then((response) => {
                 console.log(response.data);
                 window.alert("Product added successfully")
+                dispatch(addProduct(values))
+                console.log(product)
+                
             })
             .catch((err) => {
                 console.log(err)
                 console.log(err.response)
                 window.alert("Error adding Product Details")
             })
+
+            
     }
-
-
-
-
-
 
 
     return (

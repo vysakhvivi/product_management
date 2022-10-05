@@ -1,88 +1,111 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, } from 'react'
 import Navbar from './Navbar'
 import { useFormik } from 'formik'
 import { editproductSchema } from '../schema'
 import '../css/editproduct.css'
 import Previewimage from './Previewimage'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
-import {useParams} from 'react-router-dom'
 
 const initialValues = {
-  brandname: "",
-  productname: "",
-  picture: "",
-  quantity: "",
-  price: "",
-  description: "",
+    brandname: "",
+    productname: "",
+    picture: "",
+    quantity: "",
+    price: "",
+    description: "",
 };
-
-
-
-
 
 
 
 
 function Editproduct() {
 
-    const [productdata, setProductdata] = useState([]);
-        
-        const params=useParams()
+    const navigate = useNavigate();
+
+    const userid = localStorage.getItem('userid')
+
 
     useEffect(() => {
-       
-        console.warn(id)
+
         PostEdit()
-      }, [])
+    }, [])
 
-    const id=params.id
+    const params = useParams()
+    const id = params.id
 
-  const navigate=useNavigate();
 
     const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
         validationSchema: editproductSchema,
-        onSubmit: (vḁl̥u̥es) => {
+        onSubmit: (vḁl̥u̥es,action) => {
             console.log('vḁl̥u̥es: ', vḁl̥u̥es);
+            action.resetForm()
 
         }
     })
 
+    const { brandname, productname, price, quantity, description } = values;
 
-    const PostEdit= async (req,res) =>{
 
-    const result= await axios.get('http://localhost5000/editproduct',{
-        params:{
-            'id':id
-        }
-    })
-    .then((res) => {
-        setProductdata(res.data.products)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-        
+    const PostEdit = async (req, res) => {
 
-    console.log("data is",productdata)
+        await axios.get('http://localhost:5000/editproduct', {
+            params: {
+                'id': id
+            }
+        })
+            .then((res) => {
+                values.brandname = res.data[0].products[0].brandname;
+                values.productname = res.data[0].products[0].productname;
+                values.price = res.data[0].products[0].price;
+                values.quantity = res.data[0].products[0].quantity;
+                values.description = res.data[0].products[0].description;
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
     }
 
 
+        //for Updating the product details
 
 
 
-  return (
+    const updateproduct = async(req,res) => {
+        console.warn(values.brandname, values.productname,values.quantity, values.price, values.description)
 
+        console.warn("userlogin is:,",userid)
 
+        const _id=id;
 
+        await axios.patch(`http://localhost:5000/up`,{
 
+        headers: {
+                'Content-type': 'application/json'
+            },
+            data: {brandname,productname,quantity,price,description,_id},
+            params:{
+                'userid':userid
+            }
+        },
+        { withCredentials: true })
+            .then((res) => {
+                console.log(res)
+                navigate('/listproduct')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
+    }
 
-    <div>
+    return (
+
+        <div>
             <Navbar />
-            
+
 
             <div className='addcontainer'>
                 <div className='addheading'>
@@ -98,15 +121,15 @@ function Editproduct() {
                                 </div>
                                 <div>
                                     <h5>Brand Name</h5>
-                                    <input className='input' 
-                                    autoComplete='off' 
-                                    type='text' 
-                                    name='brandname' 
-                                    id='brandname' 
-                                    value={values.brandname} 
-                                    accept="image/*" 
-                                    onChange={handleChange} 
-                                    onBlur={handleBlur} />
+                                    <input className='input'
+                                        autoComplete='off'
+                                        type='text'
+                                        name='brandname'
+                                        id='brandname'
+                                        value={values.brandname}
+                                        accept="image/*"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur} />
                                     {errors.brandname && touched.brandname ? (<p className='form-error1'>{errors.brandname}</p>) : null}
                                 </div>
                             </div>
@@ -117,18 +140,18 @@ function Editproduct() {
                                 </div>
                                 <div>
                                     <h5>Product Image</h5>
-                                    <input className='input' 
-                                    
-                                    type='file'  
-                                    id='picture' 
-                                    
-                                    
-                                    onChange={(e)=>setFieldValue("picture",e.target.files[0])}
-                                    
-                                    onBlur={handleBlur} />
+                                    <input className='input'
 
-                                    {values.picture && <Previewimage file={values.picture} /> }
-                                   
+                                        type='file'
+                                        id='picture'
+
+
+                                        onChange={(e) => setFieldValue("picture", e.target.files[0])}
+
+                                        onBlur={handleBlur} />
+
+                                    {values.picture && <Previewimage file={values.picture} />}
+
                                     {errors.picture && touched.picture ? (<p className='form-error1 imagerror'>{errors.picture}</p>) : null}
                                 </div>
                             </div>
@@ -139,14 +162,14 @@ function Editproduct() {
                                 </div>
                                 <div>
                                     <h5>Quantity</h5>
-                                    <input className='input' 
-                                    autoComplete='off' 
-                                    type='number' 
-                                    name='quantity' 
-                                    id='quantity' 
-                                    value={values.quantity} 
-                                    onChange={handleChange} 
-                                    onBlur={handleBlur} />
+                                    <input className='input'
+                                        autoComplete='off'
+                                        type='number'
+                                        name='quantity'
+                                        id='quantity'
+                                        value={values.quantity}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur} />
                                     {errors.quantity && touched.quantity ? (<p className='form-error1'>{errors.quantity}</p>) : null}
                                 </div>
                             </div>
@@ -163,7 +186,14 @@ function Editproduct() {
                                     </div>
                                     <div>
                                         <h5>Product Name</h5>
-                                        <input className='input redside' autoComplete='off' type='text' name='productname' id='productname' value={values.productname} onChange={handleChange} onBlur={handleBlur} />
+                                        <input className='input redside' 
+                                        autoComplete='off' 
+                                        type='text' 
+                                        name='productname' 
+                                        id='productname' 
+                                        value={values.productname} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} />
                                         {errors.productname && touched.productname ? (<p className='form-error1 e1'>{errors.productname}</p>) : null}
                                     </div>
                                 </div>
@@ -174,7 +204,14 @@ function Editproduct() {
                                     </div>
                                     <div>
                                         <h5>Price</h5>
-                                        <input className='input redside' autoComplete='off' type='number' name='price' id='price' value={values.price} onChange={handleChange} onBlur={handleBlur} />
+                                        <input className='input redside' 
+                                        autoComplete='off' 
+                                        type='number' 
+                                        name='price' 
+                                        id='price' 
+                                        value={values.price} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} />
                                         {errors.price && touched.price ? (<p className='form-error1 e1'>{errors.price}</p>) : null}
                                     </div>
                                 </div>
@@ -185,7 +222,14 @@ function Editproduct() {
                                     </div>
                                     <div>
                                         <h5>Description</h5>
-                                        <textarea className='input redside description' autoComplete='off' type='textarea' name='description' id='description' value={values.description} onChange={handleChange} onBlur={handleBlur} />
+                                        <textarea className='input redside description' 
+                                        autoComplete='off' 
+                                        type='textarea' 
+                                        name='description' 
+                                        id='description' 
+                                        value={values.description} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} />
                                         {errors.description && touched.description ? (<p className='form-error1 e1'>{errors.description}</p>) : null}
                                     </div>
                                 </div>
@@ -198,18 +242,18 @@ function Editproduct() {
                 </div>
                 <div className='submit1'>
                     <form onSubmit={handleSubmit} className='submit2'>
-                        <input type='submit' className='submitbutton' value='SUBMIT' onClick={PostEdit} />
+                        <input type='submit' className='submitbutton' value='SUBMIT' onClick={updateproduct} />
 
-                            
+
                     </form>
                 </div>
                 <>
-                
+
                 </>
-                
+
             </div>
-            </div>
-  )
+        </div>
+    )
 }
 
 export default Editproduct

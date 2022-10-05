@@ -17,6 +17,12 @@
   padding-bottom: 30px;
 }
 
+.productclick{
+  padding-bottom: 280px;
+}
+
+
+
 
 
 
@@ -135,7 +141,7 @@ color: black;
 
 .productbuttons{
   margin-left: 200px;
-  margin-top:-10px;
+  margin-top:30px;
 }
 
 .button123 {
@@ -153,13 +159,14 @@ color: black;
 .button1234{
   position: relative;
   overflow: hidden;
-  height: 2.2rem;
-  width: 190px;
+  height: 2.6rem;
+  width: 90px;
   border-radius: 15px;
-  margin-top: -90px;
   background: #ffffff;
   background-size: 400%;
   color: #fff;
+  border:1px solid black;
+  font-weight: 600;
 }
 
 .button123:hover::before {
@@ -182,8 +189,8 @@ color: black;
 
 
 
-.button2{
-  margin-top: px;
+.button234{
+  margin-top: 10px;
 }
 
 .button123::before {
@@ -223,29 +230,63 @@ color: black;
   transition: all 0.475s;
 }
 
-.editbutton{
-  width: 100px;
-  height: 40px;
-  margin-top:30px;
-}
 
-.editbuttonlink{
-  position: relative;
-  overflow: hidden;
-  height: 2.2rem;
-  width: 190px;
-  border-radius: 15px;
-  margin-top: -90px;
-  background: #ffffff;
-  background-size: 400%;
-  color: #fff;
-}
-
-.editbuttoncontent{
-  position: relative;
-  z-index: 30;
+.editbuttoncontent p{
   font-size: 14px;
   text-transform: uppercase;
-  color: #000000;
+  color: #fa0000;
+  text-decoration: none;
 }
 
+.viewbut,.editbut{
+  text-decoration: none;
+  color: black;
+}
+
+.viewproductdiv{
+  display:inline-block;
+  color:rgb(255, 255, 255);
+  border:1px solid rgb(0, 0, 0);
+  background:rgb(255, 255, 255);
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  cursor:pointer;
+  vertical-align:middle;
+  width: 190px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  transition: all .3s;
+  margin-top: 25px;
+  font-weight: 600;
+}
+
+.viewproductdiv:hover{
+  background-color:rgb(8, 235, 8)
+}
+
+.editproductdiv{
+  display:inline-block;
+  color:rgb(255, 255, 255);
+  border:1px solid rgb(0, 0, 0);
+  background:rgb(255, 255, 255);
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  cursor:pointer;
+  vertical-align:middle;
+  width: 90px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 2.6rem;
+  font-weight: 600;
+  transition: all .3s;
+}
+
+.editproductdiv:hover{
+  background-color: #f08b18;
+}
+
+.editanddelete{
+  display: inline-flex;
+}

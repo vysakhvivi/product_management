@@ -34,7 +34,7 @@ function Login() {
 
     const {email,password} = values;
 
-    await axios.post("http://localhost:5000/",{
+    await axios.post("http://localhost:5000/login",{
     email, password
    },{ withCredentials: true })
       
@@ -43,8 +43,10 @@ function Login() {
       const data= response.data
       const email=data.email
       const username=data.username
+      const userid=data._id
       localStorage.setItem('email',email)
       localStorage.setItem('username',username)
+      localStorage.setItem('userid',userid)
       alert("Login successfull")
       navigate('/')
    })

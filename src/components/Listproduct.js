@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Productitem from '../components/Productitem'
-import { BrandingWatermarkRounded } from '@mui/icons-material';
-import Navbar from './Navbar'
-import '../css/listproduct.css'
-import Table from 'react-bootstrap/Table';
+import Navbar from './Navbar';
+import '../css/listproduct.css';
+import {useDispatch,useSelector} from 'react-redux';
+import { listProducts } from '../action/productActions';
 
 
 
@@ -15,10 +15,11 @@ function Listproduct() {
 
   const [products2, setProducts2] = useState([])
 
-  const email = localStorage.getItem('email')
-
-
   const username = localStorage.getItem('username')
+
+  const productlist=useSelector((state)=> state.allProducts.products)
+
+  const dispatch=useDispatch()
 
 
 
@@ -30,7 +31,7 @@ function Listproduct() {
 
 
   const getproducts = async () => {
-    let result = await axios.get('http://localhost:5000/listproduct', {
+      await axios.get('http://localhost:5000/listproduct', {
       params: {
         'username': username
       }
@@ -38,6 +39,11 @@ function Listproduct() {
       .then((res) => {
         setProducts(res.data)
         setProducts2(res.data.products)
+
+        console.log("products:",products)
+        dispatch(listProducts(res.data.products))
+
+        console.log("LIST OF PRODUCTS IS",productlist)
       })
       .catch((err) => {
         console.log(err)
@@ -47,10 +53,7 @@ function Listproduct() {
 
   }
 
-  let content = null
-
-
-  const items = products2.map((item,i) => {
+  const items = productlist.map((item,i) => {
     return <Productitem brandname={item.brandname} key={i} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} productid={item._id} />
   })
 

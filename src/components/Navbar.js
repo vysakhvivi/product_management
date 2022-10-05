@@ -13,9 +13,10 @@ function Navbar() {
           <li className='listitems'><a href='/' >Home</a></li>
           <li className='listitems'><a href='/addproduct' >Add Product</a></li>
           <li className='listitems'><a href='/listproduct' >List Product</a></li>
+          <li className='Login'><a href='/login' >Login</a></li>
 
         </ul>
-        <a href=""><i className='userlogo' class="fas fa-user-circle fa-2x"></i> </a>
+        <a href=""><i className="fas fa-user-circle fa-2x"></i> </a>
         
       </nav>
       </div>
