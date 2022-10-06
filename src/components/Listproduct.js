@@ -40,7 +40,6 @@ function Listproduct() {
         setProducts(res.data)
         setProducts2(res.data.products)
 
-        console.log("products:",products)
         dispatch(listProducts(res.data.products))
 
         console.log("LIST OF PRODUCTS IS",productlist)
@@ -53,7 +52,7 @@ function Listproduct() {
 
   }
 
-  const items = productlist.map((item,i) => {
+  const items =productlist && productlist.map((item,i) => {
     return <Productitem brandname={item.brandname} key={i} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} productid={item._id} />
   })
 

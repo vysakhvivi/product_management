@@ -1,4 +1,10 @@
+import { useDispatch } from 'react-redux'
 import { ActionTypes } from '../constants/actiontypes'
+import axios from 'axios'
+
+
+
+const dispatch=useDispatch
 
 export const addProduct = (products) =>{
     return {
@@ -33,6 +39,23 @@ export const listProducts = (products) =>{
     return {
         type:ActionTypes.LIST_PRODUCTS,
         payload:products
+    }
+}
+
+export const addText= value =>{
+    return{
+    type:ActionTypes.ADD_TEXT,
+    payload:value
+}
+}
+
+export const getProduct = (products) =>{
+   return{
+            type:ActionTypes.GET_PRODUCT,
+            payload:products
+        
+         
+
     }
 }
 

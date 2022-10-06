@@ -7,6 +7,7 @@ import Previewimage from './Previewimage'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../action/productActions'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -25,14 +26,16 @@ const initialValues = {
 
 function Addproduct() {
 
+    const navigate=useNavigate()
+
 
     const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
         initialValues: initialValues,
         validationSchema: addproductSchema,
-        onSubmit: (vḁl̥u̥es,{resetForm}) => {
+        onSubmit: (vḁl̥u̥es,action) => {
             
             console.log('vḁl̥u̥es: ', vḁl̥u̥es);
-            resetForm()
+
             
         }
     })
@@ -59,6 +62,8 @@ function Addproduct() {
                 window.alert("Product added successfully")
                 dispatch(addProduct(values))
                 console.log(product)
+                navigate('/addproduct')
+                
                 
             })
             .catch((err) => {

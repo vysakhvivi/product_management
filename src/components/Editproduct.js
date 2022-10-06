@@ -6,49 +6,58 @@ import '../css/editproduct.css'
 import Previewimage from './Previewimage'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-
-const initialValues = {
-    brandname: "",
-    productname: "",
-    picture: "",
-    quantity: "",
-    price: "",
-    description: "",
-};
+import { getProduct } from '../action/productActions'
+import { useDispatch, useSelector } from 'react-redux'
 
 
+const Editproduct=()=> {
 
+    const dispatch=useDispatch();
 
-function Editproduct() {
+    const products = useSelector(state=>state.products)
 
     const navigate = useNavigate();
 
     const userid = localStorage.getItem('userid')
 
-
-    useEffect(() => {
-
-        PostEdit()
-    }, [])
-
     const params = useParams()
     const id = params.id
 
+    
+    
+
 
     const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-        initialValues: initialValues,
+       
+        initialValues: {
+            brandname:'',
+            productname:'',
+            quantity:'',
+            price:'',
+            description:'', 
+        },
+
+        
         validationSchema: editproductSchema,
         onSubmit: (vḁl̥u̥es,action) => {
-            console.log('vḁl̥u̥es: ', vḁl̥u̥es);
             action.resetForm()
-
         }
     })
 
-    const { brandname, productname, price, quantity, description } = values;
+    const { brandname, productname, quantity, price, description } = values;
+
+    useEffect(() => {
+        PostEdit() 
+        
+        
+   
+        
+    }, [])
 
 
     const PostEdit = async (req, res) => {
+
+        
 
         await axios.get('http://localhost:5000/editproduct', {
             params: {
@@ -56,11 +65,8 @@ function Editproduct() {
             }
         })
             .then((res) => {
-                values.brandname = res.data[0].products[0].brandname;
-                values.productname = res.data[0].products[0].productname;
-                values.price = res.data[0].products[0].price;
-                values.quantity = res.data[0].products[0].quantity;
-                values.description = res.data[0].products[0].description;
+                dispatch(getProduct(res.data[0].products[0]))
+                console.log('res is:',res)
             })
             .catch((err) => {
                 console.log(err)
@@ -85,7 +91,7 @@ function Editproduct() {
         headers: {
                 'Content-type': 'application/json'
             },
-            data: {brandname,productname,quantity,price,description,_id},
+            body: {},
             params:{
                 'userid':userid
             }

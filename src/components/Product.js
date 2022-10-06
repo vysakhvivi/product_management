@@ -5,8 +5,17 @@ import productimage from '../images/product/7.png'
 import priceimg from '../images/price.png'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { viewProduct } from '../action/productActions'
+
 
 function Product() {
+
+  const product=useSelector((state)=>state.products)
+  const dispatch=useDispatch();
+
+
+
 
   const [brandname, getbrandname] = useState('')
   const [productname, getproductname] = useState('')
@@ -31,6 +40,8 @@ function Product() {
     })
       .then((res) => {
         console.warn(res)
+        dispatch(viewProduct(res.data[0].products[0]))
+        console.log(product)
         getbrandname(res.data[0].products[0].brandname)
         getproductname(res.data[0].products[0].productname)
         getprice(res.data[0].products[0].price)
