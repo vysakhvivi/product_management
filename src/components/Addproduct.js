@@ -81,7 +81,7 @@ function Addproduct() {
             <Navbar />
 
 
-            <form className='addcontainer' onSubmit={handleSubmit} method="POST">
+            <div className='addcontainer' onSubmit={handleSubmit} method="POST">
                 <div className='addheading'>
                     <h2>ADD Products</h2>
                     <p>Here you can add all the products and its details you want to add to the inventory</p>
@@ -91,7 +91,7 @@ function Addproduct() {
                         <form onSubmit={handleSubmit} method="POST" >
                             <div className='inputdiv one focus'>
                                 <div className='i'>
-                                    <i class="fab fa-slack-hash"></i>
+                                    <i className="fab fa-slack-hash"></i>
                                 </div>
                                 <div>
                                     <h5>Brand Name</h5>
@@ -110,7 +110,7 @@ function Addproduct() {
 
                             <div className='inputdiv three focus'>
                                 <div className='i'>
-                                    <i class="fas fa-image"></i>
+                                    <i className="fas fa-image"></i>
                                 </div>
                                 <div>
                                     <h5>Product Image</h5>
@@ -132,7 +132,7 @@ function Addproduct() {
 
                             <div className='inputdiv five focus'>
                                 <div className='i'>
-                                    <i class="fas fa-sort-numeric-up-alt"></i>
+                                    <i className="fas fa-sort-numeric-up-alt"></i>
                                 </div>
                                 <div>
                                     <h5>Quantity</h5>
@@ -156,7 +156,7 @@ function Addproduct() {
 
                                 <div className='inputdiv two focus'>
                                     <div className='i blackicon'>
-                                        <i class="fab fa-product-hunt"></i>
+                                        <i className="fab fa-product-hunt"></i>
                                     </div>
                                     <div>
                                         <h5>Product Name</h5>
@@ -174,7 +174,7 @@ function Addproduct() {
 
                                 <div className='inputdiv four focus '>
                                     <div className='i blackicon'>
-                                        <i class="fas fa-rupee-sign"></i>
+                                        <i className="fas fa-rupee-sign"></i>
                                     </div>
                                     <div>
                                         <h5>Price</h5>
@@ -191,7 +191,7 @@ function Addproduct() {
 
                                 <div className='inputdiv six focus'>
                                     <div className='i blackicon'>
-                                        <i class="fas fa-comment-alt"></i>
+                                        <i className="fas fa-comment-alt"></i>
                                     </div>
                                     <div>
                                         <h5>Description</h5>
@@ -224,7 +224,7 @@ function Addproduct() {
 
                 </>
 
-            </form>
+            </div>
 
         </div>
     )

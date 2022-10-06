@@ -5,14 +5,12 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { deleteProduct } from '../action/productActions'
 import { useDispatch, useSelector } from 'react-redux'
-
-
-
+import Swal from 'sweetalert2'
 
 
 function Productitem({ brandname, productname, quantity, price, description, productid }) {
 
-  const product=useSelector((state)=> state.product)
+    useSelector((state)=> state.product)
     const dispatch=useDispatch()
 
 
@@ -23,11 +21,12 @@ function Productitem({ brandname, productname, quantity, price, description, pro
         'id': id.productid
       }
     })
+    Swal.fire(
+      'Delete Successfull',
+    )
       .then((res) => {
-        window.alert('Product successfully deleted')
-        dispatch(deleteProduct(id.productid))
-
         
+        dispatch(deleteProduct(id.productid))
       })
       .catch((err) => {
         console.log(err)
@@ -38,19 +37,19 @@ function Productitem({ brandname, productname, quantity, price, description, pro
     <div >
 
       <div className='itemcontainer'>
-        <div class="card">
+        <div className="card">
           <a href={"/product/" + productid} className='productclick'>
-            <div class="left">
+            <div className="left">
               <img src={productimage} className='productlistimage' alt="shoe" />
             </div>
           </a>
-          <div class="right">
-            <div class="product-info">
-              <div class="product-name">
+          <div className="right">
+            <div className="product-info">
+              <div className="product-name">
                 <h1 className='producth1'>{brandname}</h1>
                 <h2 className='producth2'>{productname}</h2>
               </div>
-              <div class="details">
+              <div className="details">
                 <div className='productp'>
                   <p className='productprice'>Price:</p>
                   <p className='p1'>{price}</p>
@@ -67,14 +66,14 @@ function Productitem({ brandname, productname, quantity, price, description, pro
                 <div className='editanddelete'>
                   <div className='editproductdiv'>
                   
-                  <Link id='RouterNavLink' type='button' to={"/editproduct/" + productid} class="editbut">
-                      <p class="editbuttoncontent">EDIT</p>
+                  <Link id='RouterNavLink' type='button' to={"/editproduct/" + productid} className="editbut">
+                      <p className="editbuttoncontent">EDIT</p>
                     </Link>
                   </div>
                   
                   <div className='button234'>
-                    <button class="button1234" onClick={() => deletedata({ productid })}>
-                      <span class="button-content">DELETE</span>
+                    <button className="button1234" onClick={() => deletedata({ productid })}>
+                      <span className="button-content">DELETE</span>
                     </button>
                   </div>
                 </div>

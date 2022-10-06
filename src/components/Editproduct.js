@@ -14,7 +14,9 @@ const Editproduct=()=> {
 
     const dispatch=useDispatch();
 
-    const products = useSelector(state=>state.products)
+    const products = 
+    
+    useSelector(state=>state.products)
 
     const navigate = useNavigate();
 
@@ -39,8 +41,8 @@ const Editproduct=()=> {
 
         
         validationSchema: editproductSchema,
-        onSubmit: (vḁl̥u̥es,action) => {
-            action.resetForm()
+        onSubmit: (vḁl̥u̥es) => {
+            
         }
     })
 
@@ -49,15 +51,10 @@ const Editproduct=()=> {
     useEffect(() => {
         PostEdit() 
         
-        
-   
-        
-    }, [])
+    },)
 
 
     const PostEdit = async (req, res) => {
-
-        
 
         await axios.get('http://localhost:5000/editproduct', {
             params: {
@@ -86,24 +83,23 @@ const Editproduct=()=> {
 
         const _id=id;
 
-        await axios.patch(`http://localhost:5000/up`,{
-
-        headers: {
-                'Content-type': 'application/json'
-            },
-            body: {},
-            params:{
-                'userid':userid
-            }
-        },
-        { withCredentials: true })
-            .then((res) => {
-                console.log(res)
-                navigate('/listproduct')
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        await axios
+  .patch(`http://localhost:5000/up`,
+    { brandname, productname, quantity, price, description, _id, userid },
+    {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    },
+    { withCredentials: true }
+  )
+  .then((res) => {
+    console.log(res);
+    navigate('/listproduct');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
     }
 
@@ -123,7 +119,7 @@ const Editproduct=()=> {
                         <form onSubmit={handleSubmit} >
                             <div className='inputdiv one focus'>
                                 <div className='i'>
-                                    <i class="fab fa-slack-hash"></i>
+                                    <i className="fab fa-slack-hash"></i>
                                 </div>
                                 <div>
                                     <h5>Brand Name</h5>
@@ -142,7 +138,7 @@ const Editproduct=()=> {
 
                             <div className='inputdiv three focus'>
                                 <div className='i'>
-                                    <i class="fas fa-image"></i>
+                                    <i className="fas fa-image"></i>
                                 </div>
                                 <div>
                                     <h5>Product Image</h5>
@@ -164,7 +160,7 @@ const Editproduct=()=> {
 
                             <div className='inputdiv five focus'>
                                 <div className='i'>
-                                    <i class="fas fa-sort-numeric-up-alt"></i>
+                                    <i className="fas fa-sort-numeric-up-alt"></i>
                                 </div>
                                 <div>
                                     <h5>Quantity</h5>
@@ -188,7 +184,7 @@ const Editproduct=()=> {
 
                                 <div className='inputdiv two focus'>
                                     <div className='i blackicon'>
-                                        <i class="fab fa-product-hunt"></i>
+                                        <i className="fab fa-product-hunt"></i>
                                     </div>
                                     <div>
                                         <h5>Product Name</h5>
@@ -206,7 +202,7 @@ const Editproduct=()=> {
 
                                 <div className='inputdiv four focus '>
                                     <div className='i blackicon'>
-                                        <i class="fas fa-rupee-sign"></i>
+                                        <i className="fas fa-rupee-sign"></i>
                                     </div>
                                     <div>
                                         <h5>Price</h5>
@@ -224,7 +220,7 @@ const Editproduct=()=> {
 
                                 <div className='inputdiv six focus'>
                                     <div className='i blackicon'>
-                                        <i class="fas fa-comment-alt"></i>
+                                        <i className="fas fa-comment-alt"></i>
                                     </div>
                                     <div>
                                         <h5>Description</h5>

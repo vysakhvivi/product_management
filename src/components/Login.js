@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../css/login.css'
 import Logoside from '../images/Login_Side.png'
 import wave from '../images/wave.png'
@@ -8,6 +8,7 @@ import {useFormik} from 'formik'
 import { loginSchema } from '../schema'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const initialValues={
 email:"",
@@ -17,6 +18,8 @@ password:"",
 
 
 function Login() {
+
+  const [isLoggedin, setIsLoggedin] = useState(false);
 
   const navigate=useNavigate();
 
@@ -47,7 +50,13 @@ function Login() {
       localStorage.setItem('email',email)
       localStorage.setItem('username',username)
       localStorage.setItem('userid',userid)
-      alert("Login successfull")
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Successfully Loggedin',
+        
+      })
       navigate('/')
    })
    .catch((err)=>{
@@ -74,7 +83,7 @@ function Login() {
             <h2>LOGIN</h2>
             <div className='inputdiv one focus'>
               <div className='i'>
-              <i class="fas fa-at"></i>
+              <i className="fas fa-at"></i>
               </div>
               <div>
                 <h5>Email</h5>
@@ -91,7 +100,7 @@ function Login() {
             </div>
             <div className='inputdiv two focus'>
               <div className='i'>
-              <i class="fas fa-lock"></i>
+              <i className="fas fa-lock"></i>
               </div>
               <div>
                 <h5>Password</h5>

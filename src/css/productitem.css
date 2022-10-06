@@ -21,11 +21,6 @@
   padding-bottom: 280px;
 }
 
-
-
-
-
-
 .producth1  {
   white-space: nowrap;
   color: #E94560;
@@ -33,6 +28,9 @@
   font-size: 30px;
   margin-top: 21px;
   font-family: 'Poppins', sans-serif;
+  overflow: visible;
+  z-index:40;
+
 }
 
 

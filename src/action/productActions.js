@@ -1,10 +1,5 @@
-import { useDispatch } from 'react-redux'
 import { ActionTypes } from '../constants/actiontypes'
-import axios from 'axios'
 
-
-
-const dispatch=useDispatch
 
 export const addProduct = (products) =>{
     return {

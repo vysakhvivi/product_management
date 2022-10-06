@@ -8,8 +8,8 @@ export const registerSchema=Yup.object({
 })
 
 export const addproductSchema=Yup.object({
-    brandname:Yup.string().min(3).max(25).required("Please Enter the Brand Name !!"),
-    productname:Yup.string().min(3).max(25).required("Please Enter the Product Name !!"),
+    brandname:Yup.string().min(3).max(12).required("Please Enter the Brand Name !!"),
+    productname:Yup.string().min(3).max(20).required("Please Enter the Product Name !!"),
     picture:Yup.mixed()
     .test("FILE_TYPE","Invalid File type",(value) => value && ['image/png','image/jpeg','image/jpg'].includes(value.type)),
     quantity:Yup.number().min(1).max(10000).required("Enter the Quantity of the product !!"),
@@ -19,7 +19,7 @@ export const addproductSchema=Yup.object({
 })
 
 export const editproductSchema=Yup.object({
-    brandname:Yup.string().min(3).max(25).required("Please Enter the Brand Name !!"),
+    brandname:Yup.string().min(3).max(12).required("Please Enter the Brand Name !!"),
     productname:Yup.string().min(3).max(25).required("Please Enter the Product Name !!"),
     picture:Yup.mixed()
     .test("FILE_TYPE","Invalid File type",(value) => value && ['image/png','image/jpeg','image/jpg'].includes(value.type)),

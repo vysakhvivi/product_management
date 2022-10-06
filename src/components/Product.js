@@ -25,7 +25,7 @@ function Product() {
 
   useEffect(() => {
     Postdetails()
-  }, [])
+  }, )
 
 
   const params = useParams()

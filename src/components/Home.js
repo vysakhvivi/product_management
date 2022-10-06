@@ -1,19 +1,29 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import '../css/home/home.css'
-
 import Navbar from './Navbar'
 import additem from '../images/homeicons/additem.svg'
-import edititem from '../images/homeicons/setting-3.svg'
 import listitem from '../images/homeicons/shopping-cart.svg'
 
 
 function Home() {
 
+  const user = localStorage.getItem('username')
+
+const getname=()=>{
+
+ console.log(user)
+}
+
+useEffect(() => {
+  getname()
+}, )
+
+
 
 
   // const callHomePage= async(req,res) =>{
   //     try{
-  //         await axios.get('http://localhost:5000/homepage',{
+  //         await axios.get('http://localhost:5000/',{
   //         Headers:{
   //           "Accept":"application/json",
   //           "Content-Type":"application/json"
@@ -47,15 +57,16 @@ function Home() {
 
       {/* Main Starts */}
 
-      <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="row">
-                <div class="col-lg-6 align-self-center">
-                  <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                    <div class="row">
-                      <div class="col-lg-12">
+      <div className="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="row">
+                <div className="col-lg-6 align-self-center">
+                  <div className="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <h3 className='userwelcome'>Welcome {user}</h3>
                         <h2>Product Management Application</h2>
                         <p>With this application you can keep an inventory of all the products in the warehouse. You can add products, delete products and list all the products under the user. </p>
                       </div>
@@ -64,8 +75,8 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="right-image wow fadeInRight">
+                <div className="col-lg-6">
+                  <div className="right-image wow fadeInRight">
 
                   </div>
                 </div>
@@ -74,7 +85,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div id="services" class="services section">
+      <div id="services" className="services section">
         <div className='cont1'>
           <h1 className='serviceheading'>
             Features we Provide
@@ -83,12 +94,12 @@ function Home() {
             The services provided by the Product Management Application are as Follow.
           </p>
         </div>
-        <div class="servicecontainer">
-          <div class="cont2">
+        <div className="servicecontainer">
+          <div className="cont2">
             <a href="/addproduct" className='itemservice'>
-              <div class="itemcard">
-                <div class="service-item first-service">
-                  <div class="icon">
+              <div className="itemcard">
+                <div className="service-item first-service">
+                  <div className="icon">
                     <img src={additem} alt="Add item logo" className='servicelogo' />
                   </div>
                   <h4>Add Products</h4>
@@ -99,9 +110,9 @@ function Home() {
             </a>
             
             <a href="/listproduct" className='itemservice'>
-              <div class="itemcard">
-                <div class="service-item third-service">
-                  <div class="icon">
+              <div className="itemcard">
+                <div className="service-item third-service">
+                  <div className="icon">
                     <img src={listitem} alt="List item logo" className='servicelogo' />
                   </div>
                   <h4>List Products</h4>
@@ -122,12 +133,12 @@ function Home() {
 
 
           <div className='contactdiv'>
-            <a href="/" className='contactme'>
-              <button class="bn54">
+            <a href="/contactme" className='contactme'>
+              <button className="bn54">
                 <form method='GET'>
                   
                 </form>
-                <span class="bn54span">Contact Me</span>
+                <span className="bn54span">Contact Me</span>
               </button>
             </a>
           </div>

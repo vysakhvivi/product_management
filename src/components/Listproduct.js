@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,} from 'react'
 import axios from 'axios';
 import Productitem from '../components/Productitem'
 import Navbar from './Navbar';
@@ -11,9 +11,7 @@ import { listProducts } from '../action/productActions';
 
 function Listproduct() {
 
-  const [products, setProducts] = useState([]);
 
-  const [products2, setProducts2] = useState([])
 
   const username = localStorage.getItem('username')
 
@@ -25,8 +23,7 @@ function Listproduct() {
 
   useEffect(() => {
     getproducts()
-  }, [])
-
+  }, )
 
 
 
@@ -37,24 +34,22 @@ function Listproduct() {
       }
     })
       .then((res) => {
-        setProducts(res.data)
-        setProducts2(res.data.products)
-
         dispatch(listProducts(res.data.products))
 
-        console.log("LIST OF PRODUCTS IS",productlist)
       })
       .catch((err) => {
         console.log(err)
       })
 
-
+      
 
   }
 
   const items =productlist && productlist.map((item,i) => {
     return <Productitem brandname={item.brandname} key={i} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} productid={item._id} />
   })
+
+  
 
 
 

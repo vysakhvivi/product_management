@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -13,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
+    "emailjs": "^4.0.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -21,6 +23,7 @@
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "sweetalert2": "^11.4.37",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

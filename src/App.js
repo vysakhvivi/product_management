@@ -6,8 +6,9 @@ import Addproduct from './components/Addproduct';
 import Editproduct from './components/Editproduct';
 import ListProduct from './components/Listproduct'
 import Product from './components/Product';
+import Email from './components/Email'
 import {BrowserRouter as Router,Routes,Route,} from 'react-router-dom' 
-import { Switch } from '@mui/material';
+
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/editproduct/:id' element={<Editproduct/>} />
         <Route path='/listproduct' element={<ListProduct/>} />
         <Route path='/product/:id' element={<Product/>} />
+        <Route path='/contactme' element={<Email/>} />
       </Routes>
     
     </Router>

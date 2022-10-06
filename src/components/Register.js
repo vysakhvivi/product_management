@@ -89,7 +89,7 @@ function Register() {
             <h2>Registration</h2>
             <div className='inputdiv1 one focus1'>
               <div className='i1'>
-                <i class="fas fa-user"></i>
+                <i className="fas fa-user"></i>
               </div>
               <div>
                 <h5>Username</h5>
@@ -99,7 +99,7 @@ function Register() {
             </div>
             <div className='inputdiv1 two focus1'>
               <div className='i1'>
-                <i class="fas fa-at"></i>
+                <i className="fas fa-at"></i>
               </div>
               <div>
                 <h5>Email</h5>
@@ -110,7 +110,7 @@ function Register() {
             </div>
             <div className='inputdiv1 focus1'>
               <div className='i1'>
-                <i class="fas fa-map-marker-alt"></i>
+                <i className="fas fa-map-marker-alt"></i>
               </div>
               <div>
                 <h5>Place</h5>
@@ -120,7 +120,7 @@ function Register() {
             </div>
             <div className='inputdiv1 four focus1'>
               <div className='i1'>
-                <i class="fas fa-lock"></i>
+                <i className="fas fa-lock"></i>
               </div>
               <div>
                 <h5 className='pass1'>Password</h5>

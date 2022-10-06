@@ -6,6 +6,7 @@
 .addcontainer{
     padding: 150px;
     background-image: url(../images/home/addproduct.png);
+    background-attachment: scroll;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100vw;

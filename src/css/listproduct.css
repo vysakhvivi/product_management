@@ -15,7 +15,7 @@ body{
     background-image: url(../images/home/addproduct.png);
     background-repeat: space;
     background-size: auto;
-    
+    background-attachment: fixed;
     position: relative;
     width: 100vw;
     height: 100vh;
