@@ -3,7 +3,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/navbar.css';
 import logo from '../images/product_logo.png'
-import Swal from 'sweetalert2'
 
 
 
