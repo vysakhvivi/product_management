@@ -1,5 +1,3 @@
-import  ActionTypes  from '../constants/actiontypes'
-
 const initialState = {
     products: [],
 }
@@ -7,15 +5,15 @@ const initialState = {
 
 export const productReducer = (state=initialState, action) => {
     switch (action.type) {
-        case ActionTypes.ADD_PRODUCTS:
+        case "ACT_PRODUCTS":
             return {...state,products:action.payload}
-        case ActionTypes.LIST_PRODUCTS:
+        case "LIST_PRODUCTS":
             return {...state,products:action.payload}
-        case ActionTypes.DELETE_PRODUCT:
+        case "DELETE_PRODUCT":
             return {...state,products:state.products.filter(product =>product._id !== action.payload )}
-        case ActionTypes.GET_PRODUCT:
+        case "GET_PRODUCT":
             return {products:action.payload}
-        case ActionTypes.VIEW_PRODUCT:{
+        case "VIEW_PRODUCT":{
             return {...state,products:action.payload}
         }
         default:

@@ -1,9 +1,6 @@
-import ActionTypes from '../constants/actiontypes'
-
-
 export const addProduct = (products) =>{
     return {
-        type:ActionTypes.ADD_PRODUCTS,
+        type:"ADD_PRODUCTS",
         payload:products
         
     }
@@ -11,42 +8,36 @@ export const addProduct = (products) =>{
 
 export const editProduct = (products) =>{
     return {
-        type:ActionTypes.EDIT_PRODUCTS,
+        type:"EDIT_PRODUCTS",
         payload:products
     }
 }
 
 export const deleteProduct = (products) =>{
     return {
-        type:ActionTypes.DELETE_PRODUCT,
+        type:"DELETE_PRODUCT",
         payload:products
     }
 }
 
 export const viewProduct = (product) =>{
     return {
-        type:ActionTypes.VIEW_PRODUCT,
+        type:"VIEW_PRODUCT",
         payload:product
     }
 }
 
 export const listProducts = (products) =>{
     return {
-        type:ActionTypes.LIST_PRODUCTS,
+        type:"LIST_PRODUCTS",
         payload:products
     }
 }
 
-export const addText= value =>{
-    return{
-    type:ActionTypes.ADD_TEXT,
-    payload:value
-}
-}
 
 export const getProduct = (products) =>{
    return{
-            type:ActionTypes.GET_PRODUCT,
+            type:"GET_PRODUCT",
             payload:products
         
          
