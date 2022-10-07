@@ -35,7 +35,7 @@ background-size: cover;
     text-align: left;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 20px;
     padding-left: 270px;
 }
 
@@ -48,7 +48,7 @@ background-size: cover;
     font-size: 60px;
     color:#e92c4c;
     -webkit-text-stroke: 1px rgb(255, 255, 255);
-    margin-top: -30px;
+    margin-top: -60px;
 }
 
 .productdp{

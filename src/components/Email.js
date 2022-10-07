@@ -43,7 +43,7 @@ function Email() {
       <Navbar/>
   <div className="content">
     
-    <div className="container">
+    <div className="container123456">
       <div className="row align-items-stretch no-gutters contact-wrap">
         <div className="col-md-12">
           <div className="form h-100">
