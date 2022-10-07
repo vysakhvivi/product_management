@@ -14,15 +14,8 @@ function Navbar() {
 
   const Logout=()=>{
     localStorage.clear();
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Successfully Logged out. Please Login again',
-      showConfirmButton: true,
-    })
-    .then(()=>{
       navigate('/')
-    })
+    
     
   }
   
