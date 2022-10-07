@@ -47,7 +47,7 @@ function Email() {
       <div className="row align-items-stretch no-gutters contact-wrap">
         <div className="col-md-12">
           <div className="form h-100">
-            <h3>Get Started</h3>
+            <h3>Contact Me</h3>
             <form onSubmit={sendEmail} ref={form} className="" name="contactForm">
               <div className="row">
                 <div className="">
