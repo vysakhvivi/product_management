@@ -84,7 +84,7 @@ const Editproduct=()=> {
         const _id=id;
 
         await axios
-  .patch(`http://localhost:5000/up`,
+  .patch(`https://productmanagementapplication.herokuapp.com/up`,
     { brandname, productname, quantity, price, description, _id, userid },
     {
       headers: {
