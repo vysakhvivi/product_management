@@ -12,9 +12,8 @@ function Navbar() {
 
 
   const Logout=(e)=>{
-    e.preventDefualt()
     localStorage.clear();
-    alert('logout')
+    alert('Successfully loggedout')
       navigate('/')
   }
   
