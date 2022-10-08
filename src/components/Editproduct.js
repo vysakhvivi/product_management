@@ -56,7 +56,7 @@ const Editproduct=()=> {
 
     const PostEdit = async (req, res) => {
 
-        await axios.get('http://localhost:5000/editproduct', {
+        await axios.get('https://productmanagementapplication.herokuapp.com/editproduct', {
             params: {
                 'id': id
             }

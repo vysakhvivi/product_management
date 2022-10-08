@@ -53,7 +53,7 @@ function Addproduct() {
 
         const email = localStorage.getItem('email')
 
-        await axios.post("http://localhost:5000/addproduct", {
+        await axios.post("https://productmanagementapplication.herokuapp.com/addproduct", {
             brandname, productname, quantity, price, description, email
         })
 

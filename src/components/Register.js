@@ -38,7 +38,7 @@ function Register() {
 
     const {username,email,place,password} = values;
 
-    await axios.post("http://localhost:5000/register",{
+    await axios.post("https://productmanagementapplication.herokuapp.com/register",{
     username, email, place, password
    })
    

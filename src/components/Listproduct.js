@@ -28,7 +28,7 @@ function Listproduct() {
 
 
   const getproducts = async () => {
-      await axios.get('http://localhost:5000/listproduct', {
+      await axios.get('https://productmanagementapplication.herokuapp.com/listproduct', {
       params: {
         'username': username
       }

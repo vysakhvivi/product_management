@@ -33,7 +33,7 @@ function Product() {
 
   const Postdetails = async (req, res) => {
 
-    await axios.get('http://localhost:5000/product', {
+    await axios.get('https://productmanagementapplication.herokuapp.com/product', {
       params: {
         'id': id
       }

@@ -16,7 +16,7 @@ function Productitem({ brandname, productname, quantity, price, description, pro
 
   const deletedata = async (id) => {
   console.log("delete component:",id.productid)
-    await axios.delete('http://localhost:5000/deleteproduct', {
+    await axios.delete('https://productmanagementapplication.herokuapp.com/deleteproduct', {
       params: {
         'id': id.productid
       }
