@@ -11,11 +11,11 @@ function Navbar() {
   const navigate=useNavigate()
 
 
-  const Logout=()=>{
+  const Logout=(e)=>{
+    e.preventDefualt()
     localStorage.clear();
+    alert('logout')
       navigate('/')
-    
-    
   }
   
 
