@@ -31,7 +31,7 @@ function Navbar() {
         <li><a href="/addproduct" className="link link-theme link-arrow">ADD PRODUCTS</a></li>
         <li><a href="/listproduct" className="link link-theme link-arrow">LIST PRODUCTS</a></li>
         <li><a href="/login" className="link link-theme link-arrow loginclass">LOGIN</a></li>
-        <li><a href="" className="link link-theme link-arrow" onClick={Logout}>Logout</a></li>
+        <li><button type='button' className="link link-theme link-arrow navbutton " onClick={Logout}>Logout</button></li>
       </ul>
     </header>
 

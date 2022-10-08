@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import '../css/login.css'
 import Logoside from '../images/Login_Side.png'
 import wave from '../images/wave.png'
@@ -19,7 +19,6 @@ password:"",
 
 function Login() {
 
-  const [isLoggedin, setIsLoggedin] = useState(false);
 
   const navigate=useNavigate();
 
