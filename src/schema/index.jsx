@@ -33,3 +33,9 @@ export const loginSchema=Yup.object({
     email:Yup.string().email().required("Please Enter the Email"),
     password:Yup.string().min(6).required("Please Enter the password")
 })
+
+export const contactSchema=Yup.object({
+    username:Yup.string().min(3).max(25).required("Please Enter a Valid Name !!"),
+    useremail:Yup.string().email().required("Please Enter the Email"),
+    usermessage:Yup.string().min(3).max(100).required("Please Enter the message Properly")
+})

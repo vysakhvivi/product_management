@@ -84,7 +84,7 @@ function Listproduct() {
         <div className='products'  data-aos="slide-up"
                                   data-aos-offset="200"
                                   data-aos-delay="100"
-                                  data-aos-duration="1500"
+                                  data-aos-duration="1000"
                                   data-aos-easing="ease-in-out">
         {items}
         </div>

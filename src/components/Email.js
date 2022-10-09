@@ -3,8 +3,29 @@ import emailjs from "@emailjs/browser";
 import '../css/email.css'
 import Swal from 'sweetalert2';
 import Navbar from '../components/Navbar'
+import { contactSchema } from '../schema'
+import { useFormik } from 'formik';
+
+
+
+const initialValues={
+  username:"",
+  useremail:"",
+  usermessage:''
+}
 
 function Email() {
+
+  const {values,errors,touched,handleBlur,handleChange} = useFormik({
+    initialValues:initialValues,
+    validationSchema:contactSchema,
+    onSubmit:(vḁl̥u̥es) => {
+      console.log('vḁl̥u̥es: ', vḁl̥u̥es);
+     
+    }
+  })
+
+
 
   const form = useRef();
 
@@ -38,54 +59,45 @@ function Email() {
 
 
   return (
-    <div>
-
-      <Navbar/>
-  <div className="content">
-    
-    <div className="container123456">
-      <div className="row align-items-stretch no-gutters contact-wrap">
-        <div className="col-md-12">
-          <div className="form h-100">
-            <h3>Contact Me</h3>
-            <form onSubmit={sendEmail} ref={form} className="" name="contactForm">
-              <div className="row">
-                <div className="">
-                  <label for="" className="col-form-label">Name *</label>
-                  <input type="text" className="" name="username" placeholder="Your name"/>
-                </div>
-                <div className="">
-                  <label for="" className="col-form-label">Email *</label>
-                  <input type="text" className="" name="useremail" placeholder="Your email"/>
-                </div>
+    <div className='emaildiv'>
+      <Navbar />
+      <div className="content">
+        <form onSubmit={sendEmail} ref={form} className="formemail" name="contactForm">
+          <div className="container123456">
+            <div className='emailheading'>
+              <h2>CONTACT ME</h2>
+            </div>
+            <div className='emailcontents'>
+              <div class="form__group field">
+                <input name='username' autocomplete='off'  value={values.username}
+                    onChange={handleChange}
+                     onBlur={handleBlur}  required="" placeholder="Name" class="form__field" type="input" />
+                     { errors.username && touched.username ? (<p className='form-erroremail'>{errors.username}</p>) :null }
+              </div>
+              <div class="form__group field">
+                <input name='useremail' autocomplete='off'  value={values.useremail}
+                    onChange={handleChange}
+                     onBlur={handleBlur} required="" placeholder="Email" class="form__field" type="input" />
+                     { errors.useremail && touched.useremail ? (<p className='form-erroremail'>{errors.useremail}</p>) :null }
+              </div>
+              <div class="form__group field">
+                <textarea name='usermessage' autocomplete='off'  value={values.usermessage}
+                    onChange={handleChange}
+                     onBlur={handleBlur} required="" placeholder="Message" rows={4} cols={20} class="form__field" type="input" />
+                     { errors.usermessage && touched.usermessage ? (<p className='form-erroremail'>{errors.usermessage}</p>) :null }
               </div>
 
-              
-
-              <div className="row">
-                <div className="col-md-12 form-group mb-3">
-                  <label for="message" className="col-form-label">Message *</label>
-                  <textarea className="" name="usermessage" cols="30" rows="4"  placeholder="Write your message"></textarea>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-12 form-group">
-                  <input type="submit" value="Send Message" className="btn btn-primary rounded-0 py-2 px-4"/>
-                  
-                </div>
-              </div>
-            </form>
-
-            
-
+            </div>
+            <div className='emailbutton'>
+              <button type='submit' className='emailsubmit'> SEND
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-
-  </div>
-      </div>
   )
+
 }
 
 export default Email

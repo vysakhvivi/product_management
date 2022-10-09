@@ -47,15 +47,16 @@
     padding-right: 30px;
 }
 
-.addheading h2{
+.addheading h2 {
     color: #E94560;
     padding-bottom:10px;
-    font-size:1.8rem;
+    font-size: 2.1rem !important;
+    text-transform: uppercase;
 }
 
 .addheading p{
     color:black;
-    font-size: .8rem;
+    font-size: .9rem !important;
 }
 
 .inputdiv{
