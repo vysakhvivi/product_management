@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import '../css/register.css'
 import registerside from '../images/Register_side.png'
 import wave from '../images/wave.png'
@@ -8,6 +8,9 @@ import { useFormik } from 'formik'
 import { registerSchema } from '../schema'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Swal from 'sweetalert2'
 
 
 
@@ -18,7 +21,14 @@ const initialValues={
   password:"",
 };
 
+
+
+
 function Register() {
+
+  useEffect(() => {
+    AOS.init();
+  }, )
 
   const navigate=useNavigate();
 
@@ -44,13 +54,23 @@ function Register() {
    
    .then((response)=>{
       console.log(response.data);
-      window.alert("Registration Successfull.. Please Log in now")
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Successfully Registered. Login Now',
+        
+      })
       navigate('/login')
    })
    .catch((err)=>{
     console.log(err)
     console.log(err.response)
-    window.alert("Registration unsuccessfull. Please Check you details.")
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Registration Failed. Check the details !!',
+      
+    })
    })
 
 
@@ -80,8 +100,12 @@ function Register() {
 
       <img className='wave1' src={wave} alt="pic" />
       <div className='container1'>
-        <div className='img1'>
-          <img src={registerside} alt="pic"/>
+        <div className='img1' data-aos="fade-up"
+                              data-aos-offset="200"
+                               data-aos-delay="200"
+                                data-aos-duration="1500"
+                                data-aos-easing="ease-in-out">
+          <img src={registerside} alt="pic" />
         </div>
         <div className='Registercontainer'>
           <form method='POST' className='form1' onSubmit={handleSubmit}>

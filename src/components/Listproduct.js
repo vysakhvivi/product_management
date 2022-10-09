@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import '../css/listproduct.css';
 import {useDispatch,useSelector} from 'react-redux';
 import { listProducts } from '../action/productActions';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 
 
@@ -22,6 +24,7 @@ function Listproduct() {
 
 
   useEffect(() => {
+    AOS.init();
     getproducts()
   }, )
 
@@ -78,7 +81,11 @@ function Listproduct() {
       <h1>LIST PRODUCTS</h1>
       <p>Here you can view all the products added in your inventory</p>
         </div>
-        <div className='products'>
+        <div className='products'  data-aos="slide-up"
+                                  data-aos-offset="200"
+                                  data-aos-delay="100"
+                                  data-aos-duration="1500"
+                                  data-aos-easing="ease-in-out">
         {items}
         </div>
             

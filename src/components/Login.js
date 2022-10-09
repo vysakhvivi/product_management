@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../css/login.css'
 import Logoside from '../images/Login_Side.png'
 import wave from '../images/wave.png'
@@ -9,6 +9,8 @@ import { loginSchema } from '../schema'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import 'aos/dist/aos.css';
+import Aos from 'aos'
 
 const initialValues={
 email:"",
@@ -18,6 +20,10 @@ password:"",
 
 
 function Login() {
+
+  useEffect(()=>{
+  Aos.init()
+  }, )
 
 
   const navigate=useNavigate();
@@ -61,7 +67,12 @@ function Login() {
    .catch((err)=>{
     console.log(err)
     console.log(err.response)
-    window.alert("Please Enter the correct details")
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Please Check the details',
+      
+    })
    })
 
    
@@ -73,7 +84,11 @@ function Login() {
     <div>
       <img className='wave' src={wave} alt="img" />
       <div className='container'>
-        <div className='img'>
+        <div className='img' data-aos="fade-up"
+                              data-aos-offset="200"
+                               data-aos-delay="200"
+                                data-aos-duration="1500"
+                                data-aos-easing="ease-in-out">
           <img src={Logoside} alt='img' />
         </div>
         <div className='logincontainer'>

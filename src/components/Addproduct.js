@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../action/productActions'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 
 
@@ -59,7 +60,12 @@ function Addproduct() {
 
             .then((response) => {
                 console.log(response.data);
-                window.alert("Product added successfully")
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Product added Successfully',
+                    
+                  })
                 dispatch(addProduct(values))
                 console.log(product)
                 navigate('/addproduct')
@@ -69,7 +75,12 @@ function Addproduct() {
             .catch((err) => {
                 console.log(err)
                 console.log(err.response)
-                window.alert("Error adding Product Details")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed',
+                    text: 'Failed to add the Product !!',
+                    
+                  })
             })
 
             

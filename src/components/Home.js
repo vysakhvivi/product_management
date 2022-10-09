@@ -3,6 +3,8 @@ import '../css/home/home.css'
 import Navbar from './Navbar'
 import additem from '../images/homeicons/additem.svg'
 import listitem from '../images/homeicons/shopping-cart.svg'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 
 function Home() {
@@ -15,6 +17,7 @@ const getname=()=>{
 }
 
 useEffect(() => {
+  AOS.init();
   getname()
 }, )
 
@@ -65,7 +68,12 @@ useEffect(() => {
                 <div className="col-lg-6 align-self-center">
                   <div className="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                     <div className="row">
-                      <div className="col-lg-12">
+                      <div className="col-lg-12" 
+                      data-aos="slide-right"
+                      data-aos-offset="200"
+                      data-aos-delay="500"
+                     data-aos-duration="1500"
+                      data-aos-easing="ease-in-out">
                         <h3 className='userwelcome'>Welcome {user}</h3>
                         <h2>Product Management Application</h2>
                         <p>With this application you can keep an inventory of all the products in the warehouse. You can add products, delete products and list all the products under the user. </p>
@@ -86,7 +94,11 @@ useEffect(() => {
         </div>
       </div>
       <div id="services" className="services section">
-        <div className='cont1'>
+        <div className='cont1'  data-aos="slide-up"
+                      data-aos-offset="100"
+                      data-aos-delay="300"
+                     data-aos-duration="1500"
+                      data-aos-easing="ease-in-out">
           <h1 className='serviceheading'>
             Features we Provide
           </h1>
@@ -96,7 +108,11 @@ useEffect(() => {
         </div>
         <div className="servicecontainer">
           <div className="cont2">
-            <a href="/addproduct" className='itemservice'>
+            <a href="/addproduct" className='itemservice'  data-aos="slide-up"
+                      data-aos-offset="100"
+                      data-aos-delay="300"
+                     data-aos-duration="1500"
+                      data-aos-easing="ease-in-out">
               <div className="itemcard">
                 <div className="service-item first-service">
                   <div className="icon">
@@ -109,7 +125,11 @@ useEffect(() => {
               </div>
             </a>
             
-            <a href="/listproduct" className='itemservice'>
+            <a href="/listproduct" className='itemservice'  data-aos="slide-up"
+                      data-aos-offset="100"
+                      data-aos-delay="300"
+                     data-aos-duration="1500"
+                      data-aos-easing="ease-in-out">
               <div className="itemcard">
                 <div className="service-item third-service">
                   <div className="icon">
@@ -132,7 +152,11 @@ useEffect(() => {
           </div>
 
 
-          <div className='contactdiv'>
+          <div className='contactdiv'  data-aos="slide-up"
+                      data-aos-offset="00"
+                      data-aos-delay="300"
+                     data-aos-duration="1000"
+                      data-aos-easing="ease-in-out">
             <a href="/contactme" className='contactme'>
               <button className="bn54">
                 <form method='GET'>
