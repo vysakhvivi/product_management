@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 
 
-function Productitem({ brandname, productname, quantity, price, description, productid }) {
+function Productitem({ brandname, productname, quantity, price, description, productid ,index}) {
 
     useSelector((state)=> state.product)
     const dispatch=useDispatch()
@@ -46,6 +46,7 @@ function Productitem({ brandname, productname, quantity, price, description, pro
           <div className="right">
             <div className="product-info">
               <div className="product-name">
+                <h1 className='producth12'>{index+1}</h1>
                 <h1 className='producth1'>{brandname}</h1>
                 <h2 className='producth2'>{productname}</h2>
               </div>

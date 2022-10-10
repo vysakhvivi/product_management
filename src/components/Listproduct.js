@@ -49,7 +49,7 @@ function Listproduct() {
   }
 
   const items =productlist && productlist.map((item,i) => {
-    return <Productitem brandname={item.brandname} key={i} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} productid={item._id} />
+    return <Productitem brandname={item.brandname} key={i} productname={item.productname} quantity={item.quantity} price={item.price} description={item.description} productid={item._id} index={i} />
   })
 
   
