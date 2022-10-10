@@ -7,7 +7,6 @@ import Previewimage from './Previewimage'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../action/productActions'
-import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 
@@ -27,23 +26,21 @@ const initialValues = {
 
 function Addproduct() {
 
-    const navigate=useNavigate()
+    const product=useSelector((state)=> state)
+    const dispatch=useDispatch()
 
 
     const { values, setFieldValue, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
         initialValues: initialValues,
         validationSchema: addproductSchema,
-        onSubmit: (vḁl̥u̥es,action) => {
-            
-            console.log('vḁl̥u̥es: ', vḁl̥u̥es);
-
-            
+        onSubmit: async (vḁl̥u̥es,{resetForm}) => {
+            console.log('vḁl̥u̥es:', vḁl̥u̥es);
+            resetForm({values:initialValues})
         }
+    
     })
 
-    const product=useSelector((state)=> state)
-    const dispatch=useDispatch()
-
+ 
 
     const PostAdd = async (e) => {
         e.preventDefault();
@@ -67,9 +64,7 @@ function Addproduct() {
                     
                   })
                 dispatch(addProduct(values))
-                console.log(product)
-                navigate('/addproduct')
-                
+                console.log(product)   
                 
             })
             .catch((err) => {
@@ -79,7 +74,6 @@ function Addproduct() {
                     icon: 'error',
                     title: 'Failed',
                     text: 'Failed to add the Product !!',
-                    
                   })
             })
 

@@ -13,9 +13,8 @@ body{
     padding-left:40px;
     padding-right:40px;
     background-image: url(../images/home/addproduct.png);
-    background-repeat: space;
-    background-size: auto;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -28,7 +27,10 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
+    justify-content: space-around;
     grid-row-gap: 0px;
+    padding-left:30px;
+    padding-right: 30px;
 }
 
 .listheading{
@@ -38,4 +40,27 @@ body{
 .listheading h1{
     color:#e92c4c;
 }
+
+@media screen and (max-width:1551px)
+{
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:1551px)
+{
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:1000px)
+{
+    .products{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
   

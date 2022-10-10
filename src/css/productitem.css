@@ -2,7 +2,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
 }
 
 
@@ -287,4 +286,8 @@ color: black;
 
 .editanddelete{
   display: inline-flex;
+}
+
+@media screen and (max-width:1200px){
+
 }

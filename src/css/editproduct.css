@@ -212,3 +212,22 @@ body .six{
   .submitbutton:active {
     transform: translateY(-1px);
   }
+
+  @media screen and (max-width:1000px)
+  {
+      .addcontainer2{
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 0px;
+          grid-row-gap: 0px;
+      }
+
+      .addform{
+        padding-left: 100px;
+      }
+
+      .submitbutton{
+        width: 50%;
+      }
+  }

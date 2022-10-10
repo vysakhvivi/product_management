@@ -107,12 +107,12 @@ useEffect(() => {
           </p>
         </div>
         <div className="servicecontainer">
-          <div className="cont2">
-            <a href="/addproduct" className='itemservice'  data-aos="slide-up"
+          <div className="cont2" data-aos="slide-up"
                       data-aos-offset="100"
                       data-aos-delay="300"
                      data-aos-duration="1500"
                       data-aos-easing="ease-in-out">
+            <a href="/addproduct" className='itemservice'>
               <div className="itemcard">
                 <div className="service-item first-service">
                   <div className="icon">
@@ -125,11 +125,7 @@ useEffect(() => {
               </div>
             </a>
             
-            <a href="/listproduct" className='itemservice'  data-aos="slide-up"
-                      data-aos-offset="100"
-                      data-aos-delay="300"
-                     data-aos-duration="1500"
-                      data-aos-easing="ease-in-out">
+            <a href="/listproduct" className='itemservice is2'>
               <div className="itemcard">
                 <div className="service-item third-service">
                   <div className="icon">

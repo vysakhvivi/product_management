@@ -11,10 +11,10 @@ function Navbar() {
   const navigate=useNavigate()
 
 
-  const Logout=(e)=>{
+  const Logout=async (e)=>{
     localStorage.clear();
     alert('Successfully loggedout')
-      navigate('/')
+      navigate('/login')
   }
   
 

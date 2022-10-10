@@ -5,7 +5,7 @@ const initialState = {
 
 export const productReducer = (state=initialState, action) => {
     switch (action.type) {
-        case "ACT_PRODUCTS":
+        case "ADD_PRODUCTS":
             return {...state,products:action.payload}
         case "LIST_PRODUCTS":
             return {...state,products:action.payload}
